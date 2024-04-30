@@ -30,7 +30,7 @@ body {
   background-color: $primaryColor;
 }
 .container {
-  margin: 0 5%;/* to change for desktop... if needed */
+  margin: 0 5%; /* to change for desktop... if needed */
 }
 /* =========== Header ============ */
 @media screen and (max-width: 768px) {
@@ -198,5 +198,52 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+}
+
+/* =========== Section ============ */
+
+@media screen and (max-width: 480px) {
+  .section_content {
+    margin: 40px 0;
+    h2 {
+      padding: 7px;
+      font-family: $SubtitleFontSize;
+      color: $textColor;
+    }
+    p {
+      font-family: $ContentFontSize;
+      color: $textColor;
+    }
+    img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+  }
+  .section_gallery {
+    & > div {
+      margin: 0 7px;
+    }
+    .section_gallery_images {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      height: 300px;
+      width: 300px;
+    }
+    .section_gallery_images_img {
+      width: 145px;
+      height: 145px;
+      object-fit: fill;
+      flex-shrink: 0;
+      & > img{
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+    }
   }
 }

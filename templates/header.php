@@ -1,3 +1,9 @@
+<?php
+require_once __DIR__ . "../../lib/menu.php";
+
+$headTitle = basename($_SERVER["SCRIPT_NAME"]);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +11,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/assets/css/styles.css">
-  <title>Bienvenue !</title>
+  <title><?= $menu[$headTitle]["headTitle"] ?></title>
 </head>
 
 <body>
@@ -15,14 +21,12 @@
     </div>
     <div class="menu">
       <ul class="menu_list" id="menu">
-        <li><a class="menu_item" href="/">Accueil</a></li>
-        <li><a class="menu_item" href="/">Services</a></li>
-        <li><a class="menu_item" href="/">Habitats</a></li>
-        <li><a class="menu_item" href="/">Contact</a></li>
-        <li><a class="button" href="/">Connexion</a></li>
+        <?php foreach ($menu as $key => $menuItem) { ?>
+          <li><a class="menu_item" href="/<?= $key ?>"><?= $menuItem["title"] ?></a></li>
+        <?php } ?>
+        <li><a class="button" href="/auth/signin.php">Connexion</a></li>
       </ul>
       <a href="#" class="show_menu_button"><i class="bi bi-list"></i></a>
     </div>
   </header>
-  <main> 
-    <div class="container">
+  <main>
