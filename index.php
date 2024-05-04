@@ -2,24 +2,17 @@
 require_once __DIR__ . "/templates/header.php";
 ?>
 
-<section class="section_desciption">
-    <div class="section_content_textImage">
-        <h2>Flamands rose</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia
-            amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore
-            , optio officia error.Illum quas ut molestiae labore
-            , optio officia errorLorem ipsum dolor sit amet consectetur adipisicing elit.
-            Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia
-            amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore
-            , optio officia error.Illum quas ut molestiae labore
-            , optio officia error</p>
+<section class="section_bigTitle">
+    <img src="/assets/images/bigTitleHomeElephant.jpg" alt="Our Zoo">
+    <div class="section_bigTitle_content">
+        <h1>Découvrez notre magnifique Zoo</h1>
     </div>
-    <img src="/assets/images/flamandRose.jpg" alt="Flamand Rose">
 </section>
-<section class="section_desciption reverse">
+
+
+<section class="section_description">
     <div class="section_content_textImage">
-        <h2>Flamands rose</h2>
+        <h2>Notre Merveilleux Zoo</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia
             amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore
@@ -30,7 +23,22 @@ require_once __DIR__ . "/templates/header.php";
             , optio officia error.Illum quas ut molestiae labore
             , optio officia error</p>
     </div>
-    <img src="/assets/images/arleen-wiese-2vbhN2Yjb3A-unsplash (1).jpg" alt="Flamand Rose">
+    <img src="/assets/images/flamingo.jpg" alt="flamingo">
+</section>
+<section class="section_description reverse">
+    <div class="section_content_textImage">
+        <h2>Notre engagement écologique</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia
+            amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore
+            , optio officia error.Illum quas ut molestiae labore
+            , optio officia errorLorem ipsum dolor sit amet consectetur adipisicing elit.
+            Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia
+            amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore
+            , optio officia error.Illum quas ut molestiae labore
+            , optio officia error</p>
+    </div>
+    <img src="/assets/images/ecology.jpg" alt="Ecology Image">
 </section>
 
 
@@ -39,88 +47,119 @@ require_once __DIR__ . "/templates/header.php";
     <div class="section_gallery_content">
         <div class="section_gallery_images">
             <div class="section_gallery_images_img">
-            <a href="#"><img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
-                <!--<div class="section_gallery_images_img_content">
+                <a href="#"><img class="gallery_image" src="/assets/images/desert.jpg" alt="desert"></a>
+                <div class="section_gallery_images_img_content">
+                    <h2>Desert</h2>
+                </div>
+            </div>
+            <div class="section_gallery_images_img">
+                <a href="#"><img class="gallery_image" src="/assets/images/tropicalForest2.jpg" alt="tropical forest"></a>
+                <div class="section_gallery_images_img_content">
+                    <h2>forêt tropicale</h2>
+                </div>
+            </div>
+            <div class="section_gallery_images_img">
+                <a href="#"><img class="gallery_image" src="/assets/images/savannah.jpg" alt="savannah"></a>
+                <div class="section_gallery_images_img_content">
+                    <h2>Savane</h2>
+                </div>
+            </div>
+            <div class="section_gallery_images_img">
+                <a href="#"><img class="gallery_image" src="/assets/images/polarZone.jpg" alt="polar zone"></a>
+                <div class="section_gallery_images_img_content">
+                    <h2>Zone polaire</h2>
+                </div>
+            </div>
+            <div class="section_gallery_images_img mobile">
+                <a href="#"><img class="gallery_image" src="/assets/images/ocean.jpg" alt="ocean"></a>
+                <div class="section_gallery_images_img_content">
+                    <h2>Milieu marin</h2>
+                </div>
+            </div>
+            <div class="section_gallery_images_img mobile">
+                <a href="#"><img class="gallery_image" src="/assets/images/mountain.jpg" alt="mountain"></a>
+                <div class="section_gallery_images_img_content">
+                    <h2>Montagne</h2>
+                </div>
+            </div>
+        </div>
+        <a class="button" href="/habitats.php">Voir les habitats</a>
+    </div>
+</section>
+
+<section class="section_image">
+    <img src="/assets/images/guide.jpg" alt="guide">
+    <div class="section_image_content">
+        <h2>Visite guidée</h2>
+        <p class="section_image_content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+            at alias quam, incidunt veritatis corrupti adipisci? Possimus
+            assumenda ipsam voluptatem nostrum tempora magni natus hic id
+            . Odiot.</p>
+    </div>
+</section>
+<section class="section_image">
+    <img src="/assets/images/train.jpg" alt="train">
+    <div class="section_image_content">
+        <h2>Petit tour en train</h2>
+        <p class="section_image_content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
+            at alias quam, incidunt veritatis corrupti adipisci? Possimus
+            assumenda ipsam voluptatem nostrum tempora magni natus hic id
+            . Odiot.</p>
+    </div>
+</section>
+<div class="services_button">
+    <a class="button" href="/services.php">Voir les services</a>
+</div>
+
+<section class="section_gallery">
+    <h2>Les differents animaux</h2>
+    <div class="section_gallery_content">
+        <div class="section_gallery_images">
+            <div class="section_gallery_images_img">
+                <a href="#"><img class="gallery_image" src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
+                <div class="section_gallery_images_img_content">
                     <h2>petit tour en train</h2>
-                    <p class="section_gallery_images_img_content_text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-                        at alias quam, incidunt veritatis corrupti adipisci? Possimus
-                        assumenda ipsam voluptatem nostrum tempora magni natus hic id
-                        . Odiot.</p>
-                </div>-->
+                </div>
             </div>
             <div class="section_gallery_images_img">
-            <a href="#"><img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
+                <a href="#"><img class="gallery_image" src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
+                <div class="section_gallery_images_img_content">
+                    <h2>petit tour en train</h2>
+                </div>
             </div>
             <div class="section_gallery_images_img">
-            <a href="#"><img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
+                <a href="#"><img class="gallery_image" src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
+                <div class="section_gallery_images_img_content">
+                    <h2>petit tour en train</h2>
+                </div>
             </div>
             <div class="section_gallery_images_img">
-            <a href="#"><img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
+                <a href="#"><img class="gallery_image" src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
+                <div class="section_gallery_images_img_content">
+                    <h2>petit tour en train</h2>
+                </div>
             </div>
             <div class="section_gallery_images_img mobile">
-            <a href="#"><img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
+                <a href="#"><img class="gallery_image" src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
+                <div class="section_gallery_images_img_content">
+                    <h2>petit tour en train</h2>
+                </div>
             </div>
             <div class="section_gallery_images_img mobile">
-            <a href="#"><img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
+                <a href="#"><img class="gallery_image" src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
+                <div class="section_gallery_images_img_content">
+                    <h2>petit tour en train</h2>
+                </div>
             </div>
         </div>
         <a class="button" href="/habitats.php">Voir les habitats</a>
     </div>
 </section>
 
-<section class="section_image">
-    <img src="/assets/images/isaac-quesada-6xxxvB72qB0-unsplash (1).jpg" alt="train">
-    <div class="section_image_content">
-        <h2>petit tour en train</h2>
-        <p class="section_image_content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-            at alias quam, incidunt veritatis corrupti adipisci? Possimus
-            assumenda ipsam voluptatem nostrum tempora magni natus hic id
-            . Odiot.</p>
-    </div>
-</section>
-<section class="section_image">
-    <img src="/assets/images/isaac-quesada-6xxxvB72qB0-unsplash (1).jpg" alt="train">
-    <div class="section_image_content">
-        <h2>petit tour en train</h2>
-        <p class="section_image_content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-            at alias quam, incidunt veritatis corrupti adipisci? Possimus
-            assumenda ipsam voluptatem nostrum tempora magni natus hic id
-            . Odiot.</p>
-    </div>
-</section>
-
-
-<section class="section_gallery">
-    <h2>Les differents habitats</h2>
-    <div class="section_gallery_content">
-        <div class="section_gallery_images">
-            <div class="section_gallery_images_img">
-                <img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s">
-            </div>
-            <div class="section_gallery_images_img">
-                <img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s">
-            </div>
-            <div class="section_gallery_images_img">
-                <img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s">
-            </div>
-            <div class="section_gallery_images_img">
-                <img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s">
-            </div>
-            <div class="section_gallery_images_img mobile">
-                <img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s">
-            </div>
-            <div class="section_gallery_images_img mobile">
-                <img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s">
-            </div>
-        </div>
-        <a class="button" href="/habitats.php">Voir les habitats</a>
-    </div>
-</section>
 <section class="section_comment">
-    <h2>Les differents services</h2>
+    <h2>L'avis de nos visiteurs</h2>
     <div class="section_comment_card">
         <div class="section_comment_cards">
             <div class="section_comment_card_content">

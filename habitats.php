@@ -10,51 +10,44 @@ require_once __DIR__ . "/templates/header.php";
     <div class="section_gallery_content">
         <div class="section_gallery_images">
             <div class="section_gallery_images_img">
-                <a href="/habitat.php"><img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
-
-                <!--<div class="section_gallery_images_img_content">
-                    <h2>petit tour en train</h2>
-                    <p class="section_gallery_images_img_content_text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-                        at alias quam, incidunt veritatis corrupti adipisci? Possimus
-                        assumenda ipsam voluptatem nostrum tempora magni natus hic id
-                        . Odiot.</p>
-                </div>-->
+                <a href="/habitat.php"><img class="gallery_image" src="/assets/images/desert.jpg" alt="desert"></a>
+                <div class="section_gallery_images_img_content">
+                    <h2>Desert</h2>
+                </div>
             </div>
             <div class="section_gallery_images_img">
-                <a href="/habitat.php"><img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
+                <a href="/habitat.php"><img class="gallery_image" src="/assets/images/tropicalForest2.jpg" alt="tropical forest"></a>
+                <div class="section_gallery_images_img_content">
+                    <h2>forêt tropicale</h2>
+                </div>
             </div>
             <div class="section_gallery_images_img">
-                <a href="/habitat.php"><img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
+                <a href="/habitat.php"><img class="gallery_image" src="/assets/images/savannah.jpg" alt="savannah"></a>
+                <div class="section_gallery_images_img_content">
+                    <h2>Savane</h2>
+                </div>
             </div>
             <div class="section_gallery_images_img">
-                <a href="/habitat.php"><img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
+                <a href="/habitat.php"><img class="gallery_image" src="/assets/images/polarZone.jpg" alt="polar zone"></a>
+                <div class="section_gallery_images_img_content">
+                    <h2>Zone polaire</h2>
+                </div>
             </div>
             <div class="section_gallery_images_img mobile">
-                <a href="/habitat.php"><img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
+                <a href="/habitat.php"><img class="gallery_image" src="/assets/images/ocean.jpg" alt="ocean"></a>
+                <div class="section_gallery_images_img_content">
+                    <h2>Milieu marin</h2>
+                </div>
             </div>
             <div class="section_gallery_images_img mobile">
-                <a href="/habitat.php"><img src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
+                <a href="/habitat.php"><img class="gallery_image" src="/assets/images/mountain.jpg" alt="mountain"></a>
+                <div class="section_gallery_images_img_content">
+                    <h2>Montagne</h2>
+                </div>
             </div>
         </div>
     </div>
 </section>
-<section class="section_desciption">
-    <div class="section_content_textImage">
-        <h2>Flamands rose</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia
-            amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore
-            , optio officia error.Illum quas ut molestiae labore
-            , optio officia errorLorem ipsum dolor sit amet consectetur adipisicing elit.
-            Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia
-            amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore
-            , optio officia error.Illum quas ut molestiae labore
-            , optio officia error</p>
-    </div>
-    <img src="/assets/images/flamandRose.jpg" alt="Flamand Rose">
-</section>
-
 
 <?php
 require_once __DIR__ . "/templates/footer.php";
