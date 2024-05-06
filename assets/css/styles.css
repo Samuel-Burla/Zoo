@@ -357,8 +357,7 @@ body {
   .section_animals .section_animals_card_content {
     margin: 12px;
     border: solid #212427 1px;
-    width: calc(100vw - margin);
-    max-height: 350px;
+    max-height: 400px;
     border-radius: 10px;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
     display: flex;
@@ -371,6 +370,10 @@ body {
     max-height: 240px;
     -o-object-fit: cover;
        object-fit: cover;
+    border-radius: 8px 8px 0 0;
+  }
+  .section_animals .animal_card_button {
+    margin-bottom: 12px;
   }
   .section_image {
     position: relative;
@@ -510,7 +513,7 @@ body {
     margin: 12px;
     border: solid #212427 1px;
     width: calc(100vw - margin);
-    max-height: 350px;
+    max-height: 400px;
     border-radius: 10px;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
     display: flex;
@@ -548,7 +551,7 @@ body {
     margin: 12px;
     border: solid #212427 1px;
     width: calc(100vw - margin);
-    max-height: 350px;
+    max-height: 400px;
     border-radius: 10px;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
     display: flex;
@@ -563,6 +566,15 @@ body {
     -o-object-fit: cover;
        object-fit: cover;
     border-radius: 8px 8px 0 0;
+  }
+  .section_animals .section_animals_card_content .section_animals_card_text {
+    margin-bottom: 12px;
+  }
+  .section_animals .section_animals_card_content .section_animals_card_text p {
+    margin: 0 7px;
+  }
+  .section_animals .animal_card_button {
+    margin-bottom: 12px;
   }
   .section_gallery {
     display: flex;

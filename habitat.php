@@ -42,6 +42,7 @@ require_once __DIR__ . "/templates/header.php";
                         aperiam omnis consectetur earum in iure! Sit amet animi sapiente praesentium
                         laudantium ullam nobis optio quibusdam similique fugiat. </p>
                 </div>
+                <a class="button animal_card_button" href="#">Voir l'animal</a>
             </div>
             <div class="section_animals_card_content">
                 <img src="/assets/images/profile.jpg" alt="profile">
@@ -53,6 +54,7 @@ require_once __DIR__ . "/templates/header.php";
                         aperiam omnis consectetur earum in iure! Sit amet animi sapiente praesentium
                         laudantium ullam nobis optio quibusdam similique fugiat. </p>
                 </div>
+                <a class="button animal_card_button" href="#">Voir l'animal</a>
             </div>
             <div class="section_animals_card_content">
                 <img src="/assets/images/profile.jpg" alt="profile">
@@ -64,7 +66,9 @@ require_once __DIR__ . "/templates/header.php";
                         aperiam omnis consectetur earum in iure! Sit amet animi sapiente praesentium
                         laudantium ullam nobis optio quibusdam similique fugiat. </p>
                 </div>
+                <a class="button animal_card_button" href="#">Voir l'animal</a>
             </div>
+            
         </div>
     </div>
 </section>

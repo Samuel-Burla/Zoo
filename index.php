@@ -166,11 +166,11 @@ require_once __DIR__ . "/templates/header.php";
                 <img src="/assets/images/profile.jpg" alt="profile">
                 <div class="section_comment_card_name ">
                     <h2>Samuel B.</h2>
-                    <div class="section_comment_card_stars">
+                    <!--<div class="section_comment_card_stars">
                         <?php for ($i = 1; $i <= 5 /*$numberOfStartFromBdd*/; $i++) { ?>
                             <i class="bi bi-star-fill"></i>
                         <?php } ?>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="section_comment_card_text">
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta voluptates
