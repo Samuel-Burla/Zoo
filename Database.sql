@@ -57,12 +57,12 @@ CREATE TABLE IF NOT EXISTS `animal`(
     animal_id INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(50) NOT NULL,
     animal_condition VARCHAR(50) NOT NULL,
-    veterinary_opinion INT,
-    habitat INT,
-    race INT,
+    veterinary_opinion_id INT,
+    habitat_id INT,
+    race_id INT,
     PRIMARY KEY(animal_id),
-    FOREIGN KEY(habitat) REFERENCES habitat(habitat_id),
-    FOREIGN KEY(race) REFERENCES race(race_id)
+    FOREIGN KEY(habitat_id) REFERENCES habitat(habitat_id),
+    FOREIGN KEY(race_id) REFERENCES race(race_id)
 );
 
 CREATE TABLE IF NOT EXISTS `veterinary_opinion`(
@@ -92,4 +92,20 @@ ALTER TABLE habitat
 ADD FOREIGN KEY(image_id) REFERENCES image(image_id);
 
 ALTER TABLE animal
-ADD FOREIGN KEY(veterinary_opinion) REFERENCES veterinary_opinion(veterinary_opinion_id);
+ADD FOREIGN KEY(veterinary_opinion_id) REFERENCES veterinary_opinion(veterinary_opinion_id);
+
+/* ========== ALTER TABLES ========== */ 
+
+INSERT INTO animal (first_name, animal_condition)
+VALUES 
+("Shark", "Bon état"),
+("Croco", "très bon état"),
+("zebre", "moyen"),
+("elephant", "mauvais etat"),
+("oiseau", "plus ou moins état");
+
+INSERT INTO service (name, description)
+VALUES 
+("Petit tours en train", "Lorem ipsum, dolor sit amet consectetur adipisic"),
+("Visite guidée", "Lorem ipsum, dolor sit amet consectetur adipisic"),
+("restaurants", "Lorem ipsum, dolor sit amet consectetur adipisic");

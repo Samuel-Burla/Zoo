@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . "../../lib/menu.php";
+require_once __DIR__ . "../../lib/pdo.php";
 
 $headTitle = basename($_SERVER["SCRIPT_NAME"]);
 ?>
