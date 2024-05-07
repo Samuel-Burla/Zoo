@@ -1,5 +1,12 @@
 <?php
 require_once __DIR__ . "/templates/header.php";
+require_once __DIR__ . "/lib/pdo.php";
+require_once __DIR__ . "/lib/functions.php";
+
+$habitatId = $_GET["id"];
+$habitat = getHabitat($pdo, $habitatId);
+var_dump($habitat);
+
 ?>
 <!-- on click on one image it will be a link -->
 
@@ -7,25 +14,17 @@ require_once __DIR__ . "/templates/header.php";
 <section class="section_bigTitle">
     <img src="/assets/images/bigTitleHomeElephant.jpg" alt="Our Zoo">
     <div class="section_bigTitle_content">
-        <h1>Découvrez notre magnifique Zoo</h1>
+        <h1><?= $habitat["name"] ?></h1>
     </div>
 </section>
 
 
 <section class="section_description">
     <div class="section_content_textImage">
-        <h2>Notre Merveilleux Zoo</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia
-            amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore
-            , optio officia error.Illum quas ut molestiae labore
-            , optio officia errorLorem ipsum dolor sit amet consectetur adipisicing elit.
-            Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia
-            amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore
-            , optio officia error.Illum quas ut molestiae labore
-            , optio officia error</p>
+        <h2>A la découverte de ce milieu</h2>
+        <p><?= $habitat["description"] ?></p>
     </div>
-    <img src="/assets/images/flamingo.jpg" alt="flamingo">
+    <img src="/assets/images/flamingo.jpg" alt="flamingo"><!-- image -->
 </section>
 
 <section class="section_animals">

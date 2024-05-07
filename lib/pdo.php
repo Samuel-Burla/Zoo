@@ -6,11 +6,3 @@ try {
 } catch (PDOException $e) {
     echo "Error :" . $e->getMessage();
 }
-
-
-$query = $pdo-> prepare("SELECT * FROM service");
-$query -> execute();
-
-$services = $query->fetchAll(PDO::FETCH_ASSOC);
-
-var_dump($services);
