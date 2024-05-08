@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . "/templates/header.php";
-require_once __DIR__ . "/lib/pdo.php";
-require_once __DIR__ . "/lib/functions.php";
+require_once __DIR__ . "../../templates/header.php";
+require_once __DIR__ . "../../lib/pdo.php";
+require_once __DIR__ . "../../lib/functions.php";
 
 $services = getServices($pdo);
 ?>
@@ -25,5 +25,4 @@ $services = getServices($pdo);
 <!-- <img src="/assets/images/flamingo.jpg" alt="flamingo"> -->
 
 <?php
-require_once __DIR__ . "/templates/footer.php";
-?>
+require_once __DIR__."../../templates/footer.php";?>

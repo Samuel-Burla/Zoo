@@ -118,4 +118,30 @@ VALUES
 ("Croco", "très bon état"),
 ("zebre", "moyen"),
 ("elephant", "mauvais etat"),
+("tigre", "moyen"),
+("Lion", "très bon état"),
+("Aigle", "mauvais etat"),
+("Tortue", "moyen"),
+("serpent", "très bon état"),
+("flamant rose", "mauvais etat"),
 ("oiseau", "plus ou moins état");
+
+INSERT INTO role (label)
+VALUES 
+("admin"),
+("veterinarian"),
+("employee");
+
+INSERT INTO user (username, password, last_name, first_name, role_id)
+VALUES 
+("José", "test", "Arcad", "José", 1),
+("Denis", "test", "Avenall", "Denis", 2),
+("Julie", "test", "Varieur", "Julie", 3),
+("Pont", "test", "Dupont", "Pont", 3),
+("Mario", "test", "lastname", "firstname", 2),
+("Victoire", "test", "Bernier", "Victoire", 3),
+("Mandel", "test", "Cressac", "Mandel", 2),
+("Geneviève", "test", "Lamontagne", "Geneviève", 3),
+("Émile", "test", "Gagné", "Émile", 3),
+("Céline", "test", "Paquette", "Céline", 2),
+("Liane", "test", "Collin", "Liane", 3);

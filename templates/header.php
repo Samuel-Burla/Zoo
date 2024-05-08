@@ -28,9 +28,9 @@ echo */$menu[$headTitle]["headTitle"];
     <div class="menu">
       <ul class="menu_list" id="menu">
         <?php foreach ($menu as $key => $menuItem) { ?>
-          <li><a class="menu_item" href="/<?= $key ?>"><?= $menuItem["title"] ?></a></li>
+          <li><a class="menu_item" href="/<?php if($key==="index.php"){echo "index.php";}else{echo "pages/".$key;} ?>"><?= $menuItem["title"] ?></a></li>
         <?php } ?>
-        <li><a class="button" href="/auth/signin.php">Connexion</a></li>
+        <li><a class="button" href="/pages/signin.php">Connexion</a></li>
       </ul>
       <a href="#" class="show_menu_button"><i class="bi bi-list"></i></a>
     </div>
