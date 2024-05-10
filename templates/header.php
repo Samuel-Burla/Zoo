@@ -3,6 +3,7 @@ require_once __DIR__ . "../../lib/menu.php";
 require_once __DIR__ . "../../lib/pdo.php";
 
 $headTitle = basename($_SERVER["SCRIPT_NAME"]);
+
 ?>
 
 <!DOCTYPE html>
@@ -13,11 +14,7 @@ $headTitle = basename($_SERVER["SCRIPT_NAME"]);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/assets/css/styles.css">
   <!--<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">-->
-  <title><?php  /*if (in_array("excluded", $menu[$headTitle])) {
-    echo "hello";
-  }else{
-echo */$menu[$headTitle]["headTitle"];
-/*}*/ ?></title>
+  <title><?= $menu[$headTitle]["headTitle"]; ?></title>
 </head>
 
 <body>
@@ -27,9 +24,15 @@ echo */$menu[$headTitle]["headTitle"];
     </div>
     <div class="menu">
       <ul class="menu_list" id="menu">
-        <?php foreach ($menu as $key => $menuItem) { ?>
-          <li><a class="menu_item" href="/<?php if($key==="index.php"){echo "index.php";}else{echo "pages/".$key;} ?>"><?= $menuItem["title"] ?></a></li>
-        <?php } ?>
+        <?php foreach ($menu as $key => $menuItem) {
+          if (!array_key_exists("excluded", $menuItem)) {?>
+          <li><a class="menu_item" href="/<?php if ($key === "index.php") {
+                                            echo "index.php";
+                                          } else {
+                                            echo "pages/" . $key;
+                                          } ?>"><?= $menuItem["title"] ?></a></li>
+
+        <?php }} ?>
         <li><a class="button" href="/pages/signin.php">Connexion</a></li>
       </ul>
       <a href="#" class="show_menu_button"><i class="bi bi-list"></i></a>

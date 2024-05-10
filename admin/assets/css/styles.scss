@@ -4,6 +4,7 @@ $primaryColor: #fffaef;
 $secondaryColor: #596643;
 $tertiaryColor: #86e660;
 $darkGreen: #5ea143;
+$darkGreenStriped: #497e34;
 $textColor: #212427; /* Dark gray*/
 /* Text */
 $HeadlineFontSize: 18px;
@@ -18,28 +19,26 @@ $mainHeightTablet: calc($headerHeightMobile + $footerHeightDesktop);
 $mainHeightDesktop: calc($headerHeightDesktop + $footerHeightDesktop);
 
 button {
-    border: 0;
-  }
-  
-  .button {
-    color: $textColor;
-    background-color: #86e660;
-    padding: 10px;
-    border-radius: 20px 20px 20px 20px;
-  }
-  
-  body {
-    margin: 0;
-    background-color: $primaryColor;
-  }
+  border: 0;
+}
 
+.button {
+  color: $textColor;
+  background-color: #86e660;
+  padding: 10px;
+  border-radius: 20px 20px 20px 20px;
+}
 
+body {
+  margin: 0;
+  background-color: $primaryColor;
+}
 
 @media screen and (max-width: 992px) {
-    body{
-        display: flex;
-        flex-direction: column;
-    }
+  body {
+    display: flex;
+    flex-direction: column;
+  }
   header {
     display: flex;
     justify-content: space-between;
@@ -97,37 +96,129 @@ button {
   .desktop {
     display: none;
   }
+  .table {
+    max-height: 75vh;
+    width: 100%;
+    color: $primaryColor;
+    overflow-y: scroll;
+    border-radius: 10px;
+    font-size: $ContentFontSize;
+  }
+
+  .table_head {
+    background-color: $secondaryColor;
+  }
+  .table_body {
+    background-color: $darkGreen;
+    .actionButton {
+      color: $primaryColor;
+      text-decoration: none;
+      background-color: $tertiaryColor;
+      border-radius: 15px;
+      height: 30px;
+      padding: 5px;
+      line-height: 20px;
+    }
+  }
+  .striped {
+    background-color: $darkGreenStriped;
+  }
+
+  .table_head,
+  .table_body {
+    display: grid;
+    grid-template-columns: 5% 15% 30% 20% 15% 15%;
+  }
+  .table_head_text,
+  .table_body_text {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    margin: 5px 0;
+  }
+  .text-bg-dark {
+    background-color: $secondaryColor !important;
+  }
+  .table_head_employee,
+  .table_body_employee {
+    grid-template-columns: 40% 15% 15% 15% 15%;
+  }
+  .table_head_services,
+  .table_body_services {
+    grid-template-columns: 7% 13% 60% 20%;
+  }
+  .table_head_animals,
+  .table_body_animals {
+    grid-template-columns: 5% 10% 10% 45% 10% 10% 10%;
+  }
 }
 
 @media screen and (min-width: 993px) {
   .bootstrap_sidebar {
     height: 100vh;
   }
-  .nav-link.active{
-    background-color: $darkGreen !important;/* ====  /!\  =====*/
+  .nav-link.active {
+    background-color: $darkGreen !important; /* ====  /!\  =====*/
   }
   .mobile {
     display: none;
   }
-  main{
+  main {
     height: 100vh;
+    width: 100%;
   }
-}
+  .table {
+    max-height: 75vh;
+    width: 100%;
+    color: $primaryColor;
+    overflow: scroll;
+    border-radius: 10px;
+  }
 
-// tbody{
-//     display: block;
-//     height: 100%;
-//     overflow: auto;
-// }
+  .table_head {
+    background-color: $secondaryColor;
+  }
+  .table_body {
+    background-color: $darkGreen;
+    .actionButton {
+      color: $primaryColor;
+      text-decoration: none;
+      background-color: $tertiaryColor;
+      margin: 5px;
+      border-radius: 15px;
+      height: 30px;
+      padding: 5px;
+      line-height: 20px;
+    }
+  }
+  .striped {
+    background-color: $darkGreenStriped;
+  }
 
-// tbody, thead, tr{
-//     display: table;
-//     table-layout: auto;
-//     width: auto;
-// }
-
-.table {
-  height: 80vh;
-  width: 100%;
-  background-color: aqua;
+  .table_head,
+  .table_body {
+    display: grid;
+    grid-template-columns: 5% 15% 30% 20% 15% 15%;
+  }
+  .table_head_text,
+  .table_body_text {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+  }
+  .text-bg-dark {
+    background-color: $secondaryColor !important;
+  }
+  .table_head_employee,
+  .table_body_employee {
+    grid-template-columns: 40% 15% 15% 15% 15%;
+  }
+  .table_head_services,
+  .table_body_services {
+    grid-template-columns: 5% 10% 70% 15%;
+  }
+  .table_head_animals,
+  .table_body_animals {
+    grid-template-columns: 5% 10% 10% 45% 10% 10% 10%;
+  }
 }

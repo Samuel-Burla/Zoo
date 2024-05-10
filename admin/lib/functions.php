@@ -39,3 +39,12 @@ function getHabitat(PDO $pdo, int $habitatId) : array
     $habitat = $query->fetch(PDO::FETCH_ASSOC);
     return $habitat;
 }
+
+function getAnimals(PDO $pdo) : array
+{
+    $query = $pdo-> prepare("SELECT * FROM animal");
+    $query -> execute();
+    
+    $animals = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $animals;
+}

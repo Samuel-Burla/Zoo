@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `race`(
 
 CREATE TABLE IF NOT EXISTS `animal`(
     animal_id INT NOT NULL AUTO_INCREMENT,
-    first_name VARCHAR(50) NOT NULL,
+    name VARCHAR(50) NOT NULL,
     animal_condition VARCHAR(50) NOT NULL,
     veterinary_opinion_id INT,
     habitat_id INT,
@@ -112,7 +112,7 @@ VALUES
 ("Milieu marin", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia errorLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia error"),
 ("Montagne", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia errorLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia error");
 
-INSERT INTO animal (first_name, animal_condition)
+INSERT INTO animal (name, animal_condition)
 VALUES 
 ("Shark", "Bon état"),
 ("Croco", "très bon état"),
@@ -129,19 +129,19 @@ VALUES
 INSERT INTO role (label)
 VALUES 
 ("admin"),
-("veterinarian"),
-("employee");
+("veterinaire"),
+("employé");
 
 INSERT INTO user (username, password, last_name, first_name, role_id)
 VALUES 
-("José", "test", "Arcad", "José", 1),
-("Denis", "test", "Avenall", "Denis", 2),
-("Julie", "test", "Varieur", "Julie", 3),
-("Pont", "test", "Dupont", "Pont", 3),
-("Mario", "test", "lastname", "firstname", 2),
-("Victoire", "test", "Bernier", "Victoire", 3),
-("Mandel", "test", "Cressac", "Mandel", 2),
-("Geneviève", "test", "Lamontagne", "Geneviève", 3),
-("Émile", "test", "Gagné", "Émile", 3),
-("Céline", "test", "Paquette", "Céline", 2),
-("Liane", "test", "Collin", "Liane", 3);
+("José.arcad@mail.com", "test", "Arcad", "José", 1),
+("Denis.Avenall@mail.com", "test", "Avenall", "Denis", 2),
+("Julie.Varieur@mail.com", "test", "Varieur", "Julie", 3),
+("Pont.Dupont@mail.com", "test", "Dupont", "Pont", 3),
+("Mario.Montagne@mail.com", "test", "Montagne", "Mario", 2),
+("Victoire.Bernier@mail.com", "test", "Bernier", "Victoire", 3),
+("Mandel.Cressac@mail.com", "test", "Cressac", "Mandel", 2),
+("Geneviève.Lamontagne@mail.com", "test", "Lamontagne", "Geneviève", 3),
+("Émile.Gagné@mail.com", "test", "Gagné", "Émile", 3),
+("Céline.Paquette@mail.com", "test", "Paquette", "Céline", 2),
+("Liane.Collin@mail.com", "test", "Collin", "Liane", 3);

@@ -20,7 +20,7 @@ function getHabitats(PDO $pdo) : array
     return $habitats;
 }
 
-function getHabitat(PDO $pdo, int $habitatId) : array
+function getHabitat(PDO $pdo, int|null $habitatId) : array|bool
 {
     $query = $pdo->prepare("SELECT * FROM habitat WHERE habitat_id=:id");
     $query->bindValue(":id", $habitatId, PDO::PARAM_INT);
@@ -28,4 +28,15 @@ function getHabitat(PDO $pdo, int $habitatId) : array
     
     $habitat = $query->fetch(PDO::FETCH_ASSOC);
     return $habitat;
+}
+
+function getUser(PDO $pdo, string|null $username) : array|bool
+{
+    $sql = "SELECT * FROM user JOIN role ON user.role_id=role.role_id WHERE user.username=:username";
+    $query = $pdo-> prepare($sql);
+    $query->bindValue("username", $username);
+    $query -> execute();
+    
+    $user = $query->fetch(PDO::FETCH_ASSOC);
+    return $user;
 }

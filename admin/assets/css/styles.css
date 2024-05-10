@@ -78,6 +78,59 @@ body {
   .desktop {
     display: none;
   }
+  .table {
+    max-height: 75vh;
+    width: 100%;
+    color: #fffaef;
+    overflow-y: scroll;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+  .table_head {
+    background-color: #596643;
+  }
+  .table_body {
+    background-color: #5ea143;
+  }
+  .table_body .actionButton {
+    color: #fffaef;
+    text-decoration: none;
+    background-color: #86e660;
+    border-radius: 15px;
+    height: 30px;
+    padding: 5px;
+    line-height: 20px;
+  }
+  .striped {
+    background-color: #497e34;
+  }
+  .table_head,
+  .table_body {
+    display: grid;
+    grid-template-columns: 5% 15% 30% 20% 15% 15%;
+  }
+  .table_head_text,
+  .table_body_text {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    margin: 5px 0;
+  }
+  .text-bg-dark {
+    background-color: #596643 !important;
+  }
+  .table_head_employee,
+  .table_body_employee {
+    grid-template-columns: 40% 15% 15% 15% 15%;
+  }
+  .table_head_services,
+  .table_body_services {
+    grid-template-columns: 7% 13% 60% 20%;
+  }
+  .table_head_animals,
+  .table_body_animals {
+    grid-template-columns: 5% 10% 10% 45% 10% 10% 10%;
+  }
 }
 @media screen and (min-width: 993px) {
   .bootstrap_sidebar {
@@ -91,10 +144,58 @@ body {
   }
   main {
     height: 100vh;
+    width: 100%;
   }
-}
-.table {
-  height: 80vh;
-  width: 100%;
-  background-color: aqua;
+  .table {
+    max-height: 75vh;
+    width: 100%;
+    color: #fffaef;
+    overflow: scroll;
+    border-radius: 10px;
+  }
+  .table_head {
+    background-color: #596643;
+  }
+  .table_body {
+    background-color: #5ea143;
+  }
+  .table_body .actionButton {
+    color: #fffaef;
+    text-decoration: none;
+    background-color: #86e660;
+    margin: 5px;
+    border-radius: 15px;
+    height: 30px;
+    padding: 5px;
+    line-height: 20px;
+  }
+  .striped {
+    background-color: #497e34;
+  }
+  .table_head,
+  .table_body {
+    display: grid;
+    grid-template-columns: 5% 15% 30% 20% 15% 15%;
+  }
+  .table_head_text,
+  .table_body_text {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+  }
+  .text-bg-dark {
+    background-color: #596643 !important;
+  }
+  .table_head_employee,
+  .table_body_employee {
+    grid-template-columns: 40% 15% 15% 15% 15%;
+  }
+  .table_head_services,
+  .table_body_services {
+    grid-template-columns: 5% 10% 70% 15%;
+  }
+  .table_head_animals,
+  .table_body_animals {
+    grid-template-columns: 5% 10% 10% 45% 10% 10% 10%;
+  }
 }/*# sourceMappingURL=styles.css.map */

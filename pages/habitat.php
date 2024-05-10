@@ -1,12 +1,20 @@
 <?php
-require_once __DIR__ . "/templates/header.php";
-require_once __DIR__ . "/lib/pdo.php";
-require_once __DIR__ . "/lib/functions.php";
+require_once __DIR__ . "../../templates/header.php";
+require_once __DIR__ . "../../lib/pdo.php";
+require_once __DIR__ . "../../lib/functions.php";
 
-$habitatId = $_GET["id"];
-$habitat = getHabitat($pdo, $habitatId);
-var_dump($habitat);
-
+if (array_key_exists("id", $_GET)) {
+    $allHabitats = getHabitats($pdo);
+    $allHabitatsLenght = count($allHabitats);
+    $habitatId = $_GET["id"];
+    if ($allHabitatsLenght >= $habitatId) {
+        $habitat = getHabitat($pdo, $habitatId);
+    }else{
+        header('Location: /pages/error404.php');
+    }
+} else {
+    header('Location: /pages/error404.php');
+}
 ?>
 <!-- on click on one image it will be a link -->
 
@@ -67,11 +75,11 @@ var_dump($habitat);
                 </div>
                 <a class="button animal_card_button" href="#">Voir l'animal</a>
             </div>
-            
+
         </div>
     </div>
 </section>
 
 
 <?php
-require_once __DIR__."../../templates/footer.php";?>
+require_once __DIR__ . "../../templates/footer.php"; ?>
