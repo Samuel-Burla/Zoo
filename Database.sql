@@ -47,10 +47,10 @@ CREATE TABLE IF NOT EXISTS `habitat`(
     PRIMARY KEY(habitat_id)
 );
 
-CREATE TABLE IF NOT EXISTS `race`(
-    race_id INT AUTO_INCREMENT NOT NULL,
+CREATE TABLE IF NOT EXISTS `class`(
+    class_id INT AUTO_INCREMENT NOT NULL,
     label VARCHAR(50),
-    PRIMARY KEY (race_id)
+    PRIMARY KEY (class_id)
 );
 
 CREATE TABLE IF NOT EXISTS `animal`(
@@ -59,10 +59,10 @@ CREATE TABLE IF NOT EXISTS `animal`(
     animal_condition VARCHAR(50) NOT NULL,
     veterinary_opinion_id INT,
     habitat_id INT,
-    race_id INT,
+    class_id INT,
     PRIMARY KEY(animal_id),
     FOREIGN KEY(habitat_id) REFERENCES habitat(habitat_id),
-    FOREIGN KEY(race_id) REFERENCES race(race_id)
+    FOREIGN KEY(class_id) REFERENCES class(class_id)
 );
 
 CREATE TABLE IF NOT EXISTS `veterinary_opinion`(
@@ -112,19 +112,38 @@ VALUES
 ("Milieu marin", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia errorLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia error"),
 ("Montagne", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia errorLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia error");
 
-INSERT INTO animal (name, animal_condition)
+INSERT INTO class (label)
 VALUES 
-("Shark", "Bon état"),
-("Croco", "très bon état"),
-("zebre", "moyen"),
-("elephant", "mauvais etat"),
-("tigre", "moyen"),
-("Lion", "très bon état"),
-("Aigle", "mauvais etat"),
-("Tortue", "moyen"),
-("serpent", "très bon état"),
-("flamant rose", "mauvais etat"),
-("oiseau", "plus ou moins état");
+("mammifères"),
+("oiseaux"),
+("reptiles"),
+("poissons"),
+("amphibiens");
+
+INSERT INTO animal (name, animal_condition, habitat_id, class_id)
+VALUES 
+("Lézard", "Bon état", 1 , 3 ),
+("Chameau", "Bon état", 1 , 1 ),
+("Cobra égyptien", "Bon état", 1 , 3 ),
+("Ara rouge", "Bon état", 2 , 2 ),
+("grenouille", "Bon état", 2 , 5 ),
+("puma", "Bon état", 2 , 1 ),
+("serpent", "très bon état", 2, 3),
+("Croco", "très bon état", 2, 3),
+("zebre", "moyen", 3, 1),
+("elephant", "mauvais etat", 3, 1),
+("tigre", "moyen", 3, 1),
+("Lion", "très bon état", 3, 1),
+("Ours polaire", "Bon état", 4 , 1 ),
+("gloutons", "Bon état", 4 , 1 ),
+("baleine bleue", "Bon état", 4 , 1 ),
+("Tortue", "moyen", 5, 3),
+("Requin Blanc", "Bon état", 5 , 4 ),
+("Piranha", "Bon état", 5 , 4 ),
+("flamant rose", "mauvais etat", 5, 2),
+("faucon", "plus ou moins état", 5, 2),
+("Aigle", "mauvais etat", 5, 2);
+
 
 INSERT INTO role (label)
 VALUES 

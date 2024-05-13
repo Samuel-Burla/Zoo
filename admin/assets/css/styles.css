@@ -13,6 +13,10 @@ button {
   border-radius: 20px 20px 20px 20px;
 }
 
+.deleteButton {
+  background-color: #ea5858;
+}
+
 body {
   margin: 0;
   background-color: #fffaef;
@@ -101,6 +105,9 @@ body {
     padding: 5px;
     line-height: 20px;
   }
+  .table_body .deleteButton {
+    background-color: #ea5858;
+  }
   .striped {
     background-color: #497e34;
   }
@@ -168,6 +175,9 @@ body {
     height: 30px;
     padding: 5px;
     line-height: 20px;
+  }
+  .table_body .deleteButton {
+    background-color: #ea5858;
   }
   .striped {
     background-color: #497e34;

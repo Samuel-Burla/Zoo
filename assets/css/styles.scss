@@ -60,7 +60,7 @@ body {
     }
   }
   a {
-    text-decoration: none;
+    text-decoration: none !important;
   }
   .menu_list {
     z-index: 1;
@@ -109,9 +109,6 @@ body {
     height: $headerHeightDesktop;
     background-color: $secondaryColor;
   }
-  a {
-    text-decoration: none;
-  }
   .menu_logo {
     padding: 0 30px;
     & > a {
@@ -127,10 +124,14 @@ body {
   ul {
     padding-inline-start: 0;
   }
+  a{
+    text-decoration: none !important;
+  }
 
   .menu_list {
     display: flex;
     list-style-type: none;
+    margin-bottom: 0;
     margin-right: 20px;
     & .menu_item {
       color: $primaryColor;
@@ -313,27 +314,11 @@ body {
         color: $primaryColor;
       }
     }
-    // .section_gallery_images_img > a {
-    //   width: 100%;
-    //   height: 100%;
-    //   & > img {
-    //     width: 100%;
-    //     height: 100%;
-    //     border-radius: 10px;
-    //     object-fit: cover;
-    //     // :hover{
-    //     //   filter: brightness(0.6);
-    //     // }
-    //   }
-    //   // .section_gallery_images_img_content{
-
-    //   // }
-    // }
     a {
       margin-top: 20px;
     }
     .mobile {
-      display: none;
+      display: none !important;
     }
   }
   .section_comment {
@@ -443,9 +428,6 @@ body {
       color: #fffaef;
       width: 80%;
       top: 70%;
-      p {
-        width: 100%;
-      }
       h2 {
         color: $primaryColor;
       }
@@ -490,15 +472,10 @@ body {
   .section_form_error {
     background-color: #ea5858;
     margin: 0 20px 15px 20px;
-    max-width: 260px;
-    p {
+    & p {
       font-size: $SubtitleFontSize;
       color: $primaryColor;
-      margin-bottom: 15px;
-      padding: 0 20px;
-      // display: flex;
-      // flex-direction: column;
-      // justify-content: space-between;
+      margin: 10px 0;
     }
   }
 }
@@ -772,14 +749,13 @@ body {
   }
   .section_form_error {
     background-color: #ea5858;
+    display: flex;
+    align-items: center;
     margin: 0 20px 15px 20px;
-    // max-width: 300px;
-    p {
+    & p {
       font-size: $SubtitleFontSize;
       color: $primaryColor;
-      // display: flex;
-      // flex-direction: column;
-      // justify-content: space-between;
+      margin: 10px 10px;
     }
   }
 }

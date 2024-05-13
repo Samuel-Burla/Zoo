@@ -71,6 +71,11 @@ require_once __DIR__."../../lib/menu.php";
                     </a>
                 </li>
                 <li>
+                    <a href="/admin/pages/employees.php" class="nav-link text-white">
+                        Comptes rendus vétérinaire 
+                    </a>
+                </li>
+                <li>
                     <a href="/admin/pages/signup.php" class="nav-link text-white">
                         Créer un compte employés
                     </a>

@@ -51,11 +51,11 @@ if (array_key_exists("submitButton", $_POST)) {
         <?php } ?>
         <div class="section_form_input">
             <label for="username">Adresse email</label>
-            <input type="text" id="username" name="username" />
+            <input type="text" class="form-control" id="username" name="username" />
         </div>
         <div class="section_form_input">
             <label for="password">Mot de passe</label>
-            <input type="text" id="password" name="password" />
+            <input type="text" class="form-control" id="password" name="password" />
         </div>
         <div class="section_form_button">
             <button class="button" type="submit" name="submitButton">Connexion</button>

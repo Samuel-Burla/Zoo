@@ -52,7 +52,7 @@ $habitats = getHabitats($pdo);
         <div class="section_gallery_images">
             <?php foreach ($habitats as $key => $habitat) { ?>
                 <div class="section_gallery_images_img">
-                    <a href="/habitat.php"><!-- image --><img class="gallery_image" src="/assets/images/desert.jpg" alt="desert"></a>
+                <a href="/pages/habitat.php?id=<?= $key + 1?>"><!-- image --><img class="gallery_image" src="/assets/images/desert.jpg" alt="desert"></a>
                     <div class="section_gallery_images_img_content">
                         <h2><?= $habitat["name"] ?></h2>
                     </div>
@@ -65,6 +65,9 @@ $habitats = getHabitats($pdo);
             <!--<img class="gallery_image" src="/assets/images/mountain.jpg" alt="mountain">-->
         </div>
     </div>
+    <div class="services_button">
+    <a class="button" href="/pages/habitats.php">Voir les habitats</a>
+</div>
 </section>
 
 <section class="section_image">

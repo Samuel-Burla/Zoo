@@ -40,3 +40,25 @@ function getUser(PDO $pdo, string|null $username) : array|bool
     $user = $query->fetch(PDO::FETCH_ASSOC);
     return $user;
 }
+
+function getAnimals(PDO $pdo, int $habitat_id) : array
+{
+    $sql = "SELECT * FROM animal WHERE habitat_id=:habitat_id";
+    $query = $pdo-> prepare($sql);
+    $query->bindValue(":habitat_id", $habitat_id);
+    $query -> execute();
+    
+    $animals = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $animals;
+}
+
+function getAnimal(PDO $pdo, int $animal_id) : array
+{
+    $sql = "SELECT * FROM animal WHERE animal_id=:animal_id";
+    $query = $pdo-> prepare($sql);
+    $query->bindValue(":animal_id", $animal_id, PDO::PARAM_INT);
+    $query -> execute();
+    
+    $animal = $query->fetch(PDO::FETCH_ASSOC);
+    return $animal;
+}

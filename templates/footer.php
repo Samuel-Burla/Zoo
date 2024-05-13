@@ -19,7 +19,7 @@
     </div>
 </footer>
 <script src="/assets/js/script.js"></script>
-<!--<script src="/assets/bootstrap/js/bootstrap.js"></script>-->
+<script src="/assets/bootstrap/js/bootstrap.js"></script>
 </body>
 
 </html>
