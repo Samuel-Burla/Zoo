@@ -20,14 +20,14 @@ $users = getUsers($pdo);
             <div class="table_head_text">Actions</div>
         </div>
         <?php foreach ($users as $key => $user) { ?>
-            <?php if ($user["label"] != "admin") { ?>
+            <?php if ($user["role_label"] != "admin") { ?>
                 <div class="table_body table_head_employee <?php if ($key % 2 === 0) {
                                                                 echo "striped";
                                                             } ?>">
                     <div class="table_body_text"><?= $user['username'] ?></div>
                     <div class="table_body_text"><?= $user['last_name'] ?></div>
                     <div class="table_body_text"><?= $user['first_name'] ?></div>
-                    <div class="table_body_text"><?= $user['label'] ?></div>
+                    <div class="table_body_text"><?= $user['role_label'] ?></div>
                     <a href="#" class="table_head_text actionButton">Supprimer</a>
                 </div>
         <?php }

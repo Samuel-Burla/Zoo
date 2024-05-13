@@ -40,7 +40,7 @@ if (array_key_exists("setService", $_POST)) {
                                                             echo "striped";
                                                         } ?>">
                 <div class="table_body_text"><?= $service['service_id'] ?></div>
-                <div class="table_body_text"><?= $service['name'] ?></div>
+                <div class="table_body_text"><?= $service['service_name'] ?></div>
                 <div class="table_body_text"><?= $service['description'] ?></div>
                 <div>
                     <a href="/admin/pages/service.php?service_id=<?= $service['service_id'] ?>" class="table_head_text actionButton">Modifier</a>

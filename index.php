@@ -3,6 +3,26 @@ require_once __DIR__ . "/templates/header.php";
 require_once __DIR__ . "/lib/pdo.php";
 require_once __DIR__ . "/lib/functions.php";
 
+// $images = getImages($pdo,1);
+// $uneImage = $images[0]['image_data'];
+
+// if($images){
+//     // header("Content-type: image/jpeg");
+//     // echo $uneImages;
+// } 
+
+// // var_dump($uneImage);
+
+
+// if ($images) {
+//     $uneImage = $images[0]['image_data'];
+// } else {
+//     // Handle the case when no images are found
+//     echo "No image found";
+//     exit; // Exit the script if no image is found
+// }
+
+
 $habitats = getHabitats($pdo);
 ?>
 
@@ -27,7 +47,7 @@ $habitats = getHabitats($pdo);
             , optio officia error.Illum quas ut molestiae labore
             , optio officia error</p>
     </div>
-    <img src="/assets/images/flamingo.jpg" alt="flamingo">
+    <img src="" alt="flamingo">
 </section>
 <section class="section_description reverse">
     <div class="section_content_textImage">

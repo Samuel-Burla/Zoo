@@ -8,7 +8,7 @@ USE Zoo;
 
 CREATE TABLE IF NOT EXISTS `role`(
     role_id INT NOT NULL AUTO_INCREMENT,
-    label VARCHAR(50) NOT NULL,
+    role_label VARCHAR(50) NOT NULL,
     PRIMARY KEY(role_id)
 );
 
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS user (
 
 CREATE TABLE IF NOT EXISTS `service`(
     service_id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
+    service_name VARCHAR(50) NOT NULL,
     description TEXT(1000) NOT NULL,
     PRIMARY KEY(service_id)
 );
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `image`(
 
 CREATE TABLE IF NOT EXISTS `habitat`(
     habitat_id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
+    habitat_name VARCHAR(50) NOT NULL,
     description TEXT(1000) NOT NULL,
     habitat_comment VARCHAR(255),
     image_id INT,
@@ -49,13 +49,13 @@ CREATE TABLE IF NOT EXISTS `habitat`(
 
 CREATE TABLE IF NOT EXISTS `class`(
     class_id INT AUTO_INCREMENT NOT NULL,
-    label VARCHAR(50),
+    class_label VARCHAR(50),
     PRIMARY KEY (class_id)
 );
 
 CREATE TABLE IF NOT EXISTS `animal`(
     animal_id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
+    animal_name VARCHAR(50) NOT NULL,
     animal_condition VARCHAR(50) NOT NULL,
     veterinary_opinion_id INT,
     habitat_id INT,
@@ -96,14 +96,14 @@ ADD FOREIGN KEY(veterinary_opinion_id) REFERENCES veterinary_opinion(veterinary_
 
 /* ========== ALTER TABLES ========== */ 
 
-INSERT INTO service (name, description)
+INSERT INTO service (service_name, description)
 VALUES 
 ("Petit tours en train", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia errorLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia error"),
 ("Visite guidée", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia errorLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia error"),
 ("restaurants", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia errorLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia error"),
 ("Dormir au Zoo", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia errorLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia error");
 
-INSERT INTO habitat (name, description)
+INSERT INTO habitat (habitat_name, description)
 VALUES 
 ("Desert", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia errorLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia error"),
 ("Forêt tropicale", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia errorLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia error"),
@@ -112,7 +112,7 @@ VALUES
 ("Milieu marin", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia errorLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia error"),
 ("Montagne", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia errorLorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore , optio officia error.Illum quas ut molestiae labore , optio officia error");
 
-INSERT INTO class (label)
+INSERT INTO class (class_label)
 VALUES 
 ("mammifères"),
 ("oiseaux"),
@@ -120,7 +120,7 @@ VALUES
 ("poissons"),
 ("amphibiens");
 
-INSERT INTO animal (name, animal_condition, habitat_id, class_id)
+INSERT INTO animal (animal_name, animal_condition, habitat_id, class_id)
 VALUES 
 ("Lézard", "Bon état", 1 , 3 ),
 ("Chameau", "Bon état", 1 , 1 ),
@@ -145,7 +145,7 @@ VALUES
 ("Aigle", "mauvais etat", 5, 2);
 
 
-INSERT INTO role (label)
+INSERT INTO role (role_label)
 VALUES 
 ("admin"),
 ("veterinaire"),

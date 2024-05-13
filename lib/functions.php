@@ -62,3 +62,18 @@ function getAnimal(PDO $pdo, int $animal_id) : array
     $animal = $query->fetch(PDO::FETCH_ASSOC);
     return $animal;
 }
+function getImages(PDO $pdo, INT $image_id) : array
+{
+    $sql = "SELECT * FROM image WHERE image_id=:image_id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(":image_id", $image_id, PDO::PARAM_INT);
+    // if($habitat_id){
+
+    //     $query->bindValue(":habitat_id", $habitat_id, PDO::PARAM_INT);
+    // }
+    $query->execute();
+
+    $images = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    return $images;
+}

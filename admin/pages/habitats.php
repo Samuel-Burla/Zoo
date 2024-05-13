@@ -27,7 +27,7 @@ $habitats = getHabitats($pdo);
                                                             echo "striped";
                                                         } ?>">
                 <div class="table_body_text"><?= $habitat['habitat_id'] ?></div>
-                <div class="table_body_text"><?= $habitat['name'] ?></div>
+                <div class="table_body_text"><?= $habitat['habitat_name'] ?></div>
                 <div class="table_body_text"><?= $habitat['description'] ?></div>
                 <div class="table_body_text"><?= $habitat['habitat_comment'] ?></div>
                 <div class="table_head_text"><?= $habitat['image_id'] ?></div>
