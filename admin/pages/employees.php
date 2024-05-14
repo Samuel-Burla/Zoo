@@ -4,11 +4,44 @@ require_once __DIR__ . "../../../lib/pdo.php";
 require_once __DIR__ . "../../lib/functions.php";
 
 $users = getUsers($pdo);
+
+$errors = [];
+$messages = [];
+
+if (array_key_exists("addUser", $_POST)) {
+    if ($_POST['role_id'] != 1) {
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $role_id = $_POST['role_id'];
+        if (iconv_strlen($first_name) > 0 && iconv_strlen($last_name) > 0 && iconv_strlen($username) > 0 && iconv_strlen($password) > 0 && $role_id) { //smaller than TEXT(1000)
+            addUser($pdo, $first_name, $last_name, $username, $password, $role_id);
+            $messages['addUserMessage'] = "Ajout de l'utilisateur réussi !";
+        } else {
+            $errors["addUserError"] = "Erreur lors de la creation de compte utilisateur !";
+        }
+    } else {
+        $errors["addUserError"] = "Erreur lors de la creation de compte utilisateur !";
+    }
+}
+
+
+
 ?>
 
 <div class="container">
     <div class="d-flex align-items-center justify-content-between">
         <h1 class="my-4">Les employés</h1>
+        <?php if (array_key_exists("addUserError", $errors)) { ?>
+                <div class="section_form_error">
+                    <p><?= $errors["addUserError"] ?></p>
+                </div>
+            <?php } else if (array_key_exists("addUserMessage", $messages)) { ?>
+            <div class="section_form_message">
+                <p><?= $messages["addUserMessage"] ?></p>
+            </div>
+        <?php } ?>
         <a href="#" class="button p-2 me-2 h-50 text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal">Ajouter un utilisateur </a>
     </div>
     <div class="table">
@@ -28,7 +61,10 @@ $users = getUsers($pdo);
                     <div class="table_body_text"><?= $user['last_name'] ?></div>
                     <div class="table_body_text"><?= $user['first_name'] ?></div>
                     <div class="table_body_text"><?= $user['role_label'] ?></div>
-                    <a href="#" class="table_head_text actionButton">Supprimer</a>
+                    <div>
+                        <a href="/admin/pages/employee.php?username=<?= $user['username'] ?>" class="table_head_text actionButton">Modifier</a>
+                        <a href="/admin/pages/employee.php?username=<?= $user['username'] ?>" class="table_head_text actionButton deleteButton">Supprimer</a>
+                    </div>
                 </div>
         <?php }
         } ?>
@@ -38,18 +74,31 @@ $users = getUsers($pdo);
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <h2 class="m-2">Ajouter un service</h2>
+            <h2 class="m-2">Ajouter un employé</h2>
             <form class="section_form m-2" method="POST">
                 <div class="section_form_input my-2">
-                    <label for="name">Nom du service</label>
-                    <input type="text" class="form-control" id="name" name="name" />
+                    <label for="last_name">Nom</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" />
+                </div>
+                <div class="section_form_input my-2">
+                    <label for="first_name">Prénom</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" />
+                </div>
+                <div class="section_form_input my-2">
+                    <label for="username">Email</label>
+                    <input type="email" class="form-control" id="username" name="username" />
+                </div>
+                <div class="section_form_input my-2">
+                    <label for="password">Mot de passe</label>
+                    <input type="text" class="form-control" id="password" name="password" />
                 </div>
                 <div class="section_form_input">
-                    <label for="description">Description</label>
-                    <input type="text" class="form-control" id="description" name="description" />
+                    <label for="role_id">Role</label>
+                    <input type="text" class="form-control" id="role_id" name="role_id" />
+                    <div id="emailHelp" class="form-text">role_id: vétérinaire: 2, employé: 3.</div>
                 </div>
                 <div class="section_form_button mt-2">
-                    <button class="button" type="submit" name="addService">Ajouter</button>
+                    <button class="button" type="submit" name="addUser">Ajouter l'utilisateur</button>
                 </div>
             </form>
         </div>

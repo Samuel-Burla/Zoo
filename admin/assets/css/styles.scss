@@ -30,6 +30,7 @@ button {
 }
 .deleteButton{
   background-color: #ea5858;
+  color: $primaryColor;
 }
 
 body {
@@ -229,5 +230,27 @@ body {
   .table_head_animals,
   .table_body_animals {
     grid-template-columns: 5% 15% 10% 35% 15% 10% 10%;
+  }
+  .section_form_error {
+    background-color: #ea5858;
+    display: flex;
+    align-items: center;
+    // margin: 0 20px 15px 20px;
+    & p {
+      font-size: $SubtitleFontSize;
+      color: $primaryColor;
+      margin: 10px 10px;
+    }
+  }
+  .section_form_message {
+    background-color: $tertiaryColor;
+    display: flex;
+    align-items: center;
+    // margin: 0 20px 15px 20px;
+    & p {
+      font-size: $SubtitleFontSize;
+      color: $textColor;
+      margin: 10px 10px;
+    }
   }
 }

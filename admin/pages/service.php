@@ -29,16 +29,16 @@ if (array_key_exists("deleteService", $_POST)) {
 
 <div class="container">
     <div class="d-flex align-items-center justify-content-between">
-        <h1 class="my-4">Les services</h1>
+        <h1 class="my-4"><?=$service['service_name']?></h1>
     </div>
     <form class="section_form m-2" method="POST">
         <div class="section_form_input my-2">
             <label for="name">Nom du service</label>
-            <input type="text" class="form-control" id="name" name="name" />
+            <input type="text" class="form-control" id="name" name="name" value="<?=$service['service_name']?>"/>
         </div>
         <div class="section_form_input">
             <label for="description">Description</label>
-            <input type="text" class="form-control" id="description" name="description" />
+            <input type="textarea" class="form-control" id="description" name="description" value="<?=$service['description']?>" />
         </div>
         <div class="section_form_button mt-2">
             <button class="button" type="submit" name="updateService">Modifier</button>

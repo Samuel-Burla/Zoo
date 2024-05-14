@@ -10,13 +10,13 @@ $services = getServices($pdo);
 
 $errors = [];
 
-if (array_key_exists("setService", $_POST)) {
+if (array_key_exists("addService", $_POST)) {
     $serviceName = $_POST['name'];
     $serviceDescription = $_POST['description'];
     if (iconv_strlen($serviceName) > 0 && iconv_strlen($serviceDescription) > 0) { //smaller than TEXT(1000)
-        setService($pdo, $serviceName, $serviceDescription);
+        addService($pdo, $serviceName, $serviceDescription);
     } else {
-        $errors["addServiceError"] = "Nom ou descritption incorrects";
+        $errors["addServiceError"] = "Echec lors de la création du service !";
     }
 }
 
@@ -25,6 +25,11 @@ if (array_key_exists("setService", $_POST)) {
 <div class="container">
     <div class="d-flex align-items-center justify-content-between">
         <h1 class="my-4">Les services</h1>
+        <?php if (array_key_exists("addServiceError", $errors)) { ?>
+                <div class="section_form_error">
+                    <p><?= $errors["addServiceError"] ?></p>
+                </div>
+            <?php } ?>
         <a href="#" class="button p-2 me-2 h-50 text-decoration-none" data-bs-toggle="modal" data-bs-target="#setServiceModal">Ajouter un service</a>
     </div>
     <div class="table">
@@ -65,7 +70,7 @@ if (array_key_exists("setService", $_POST)) {
                     <input type="text" class="form-control" id="description" name="description" />
                 </div>
                 <div class="section_form_button mt-2">
-                    <button class="button" type="submit" name="setService">Ajouter</button>
+                    <button class="button" type="submit" name="addService">Ajouter</button>
                 </div>
             </form>
         </div>

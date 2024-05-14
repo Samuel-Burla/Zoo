@@ -75,11 +75,6 @@ require_once __DIR__."../../lib/menu.php";
                         Comptes rendus vétérinaire 
                     </a>
                 </li>
-                <li>
-                    <a href="/admin/pages/signup.php" class="nav-link text-white">
-                        Créer un compte employés
-                    </a>
-                </li>
             </ul>
             <hr>
             <a href="#" class="d-flex align-items-center text-white text-decoration-none" aria-expanded="false">
