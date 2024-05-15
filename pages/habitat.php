@@ -24,7 +24,7 @@ $animals = getAnimals($pdo, $habitatId);
 <section class="section_bigTitle">
     <img src="/assets/images/bigTitleHomeElephant.jpg" alt="Our Zoo">
     <div class="section_bigTitle_content">
-        <h1><?= $habitat["name"] ?></h1>
+        <h1><?= $habitat["habitat_name"] ?></h1>
     </div>
 </section>
 
@@ -47,7 +47,7 @@ $animals = getAnimals($pdo, $habitatId);
                 <div class="section_animals_card_content">
                     <img src="/assets/images/profile.jpg" alt="profile">
                     <div class="section_animals_card_name ">
-                        <h2><?= $animal["name"] ?></h2>
+                        <h2><?= $animal["animal_name"] ?></h2>
                     </div>
                     <div class="section_animals_card_text">
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta voluptates
