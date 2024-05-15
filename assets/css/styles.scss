@@ -16,17 +16,13 @@ $textColor: #212427; /* Dark gray*/
 $HeadlineFontSize: 18px;
 $SubtitleFontSize: 14px;
 $ContentFontSize: 12px;
-$footerHeightMobile: 300px;
+$footerHeightMobile: 320px;
 $footerHeightDesktop: 200px;
 $headerHeightMobile: 52px;
 $headerHeightDesktop: 70px;
 $mainHeightMobile: calc($headerHeightMobile + $footerHeightMobile);
 $mainHeightTablet: calc($headerHeightMobile + $footerHeightDesktop);
 $mainHeightDesktop: calc($headerHeightDesktop + $footerHeightDesktop);
-
-button {
-  border: 0;
-}
 
 .button {
   color: $textColor;
@@ -185,7 +181,7 @@ body {
   footer {
     background-color: $secondaryColor;
     width: 100%;
-    height: 200px;
+    height: 270px;
     & h2,
     p {
       color: $primaryColor;

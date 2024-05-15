@@ -8,16 +8,16 @@ USE Zoo;
 
 CREATE TABLE IF NOT EXISTS `role`(
     role_id INT NOT NULL AUTO_INCREMENT,
-    role_label VARCHAR(50) NOT NULL,
+    role_label VARCHAR(255) NOT NULL,
     PRIMARY KEY(role_id)
 );
 
 /* ========== TABLES ========== */ 
 CREATE TABLE IF NOT EXISTS user (
-    username VARCHAR(50) NOT NULL, 
+    username VARCHAR(255) NOT NULL, 
     password VARCHAR(255) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    first_name VARCHAR(255) NOT NULL,
     role_id INT NOT NULL,
     PRIMARY KEY (username),
     FOREIGN KEY (role_id) REFERENCES role(role_id)
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS user (
 
 CREATE TABLE IF NOT EXISTS `service`(
     service_id INT NOT NULL AUTO_INCREMENT,
-    service_name VARCHAR(50) NOT NULL,
+    service_name VARCHAR(255) NOT NULL,
     description TEXT(1000) NOT NULL,
     PRIMARY KEY(service_id)
 );
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `image`(
 
 CREATE TABLE IF NOT EXISTS `habitat`(
     habitat_id INT NOT NULL AUTO_INCREMENT,
-    habitat_name VARCHAR(50) NOT NULL,
+    habitat_name VARCHAR(255) NOT NULL,
     description TEXT(1000) NOT NULL,
     habitat_comment VARCHAR(255),
     image_id INT,
@@ -49,14 +49,14 @@ CREATE TABLE IF NOT EXISTS `habitat`(
 
 CREATE TABLE IF NOT EXISTS `class`(
     class_id INT AUTO_INCREMENT NOT NULL,
-    class_label VARCHAR(50),
+    class_label VARCHAR(255),
     PRIMARY KEY (class_id)
 );
 
 CREATE TABLE IF NOT EXISTS `animal`(
     animal_id INT NOT NULL AUTO_INCREMENT,
-    animal_name VARCHAR(50) NOT NULL,
-    animal_condition VARCHAR(50) NOT NULL,
+    animal_name VARCHAR(255) NOT NULL,
+    animal_condition VARCHAR(255),
     veterinary_opinion_id INT,
     habitat_id INT,
     class_id INT,
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `veterinary_opinion`(
     veterinary_opinion_id INT NOT NULL AUTO_INCREMENT,
     date DATE NOT NULL,
     detail VARCHAR(255) NOT NULL,
-    username VARCHAR(50),
+    username VARCHAR(255),
     animal_id INT,
     PRIMARY KEY(veterinary_opinion_id),
     FOREIGN KEY(username) REFERENCES user(username),
@@ -78,10 +78,22 @@ CREATE TABLE IF NOT EXISTS `veterinary_opinion`(
 
 CREATE TABLE IF NOT EXISTS `opinion`(
     opinion_id INT NOT NULL AUTO_INCREMENT,
-    pseudo VARCHAR(50),
+    pseudo VARCHAR(255),
     comment VARCHAR(255),
     isVisible BIT NOT NULL DEFAULT 0,
     PRIMARY KEY(opinion_id)
+);
+
+CREATE TABLE IF NOT EXISTS `opening_time`(
+    opening_time_id INT NOT NULL AUTO_INCREMENT,
+    monday VARCHAR(255),
+    tuesday VARCHAR(255),
+    wednesday VARCHAR(255),
+    thursday VARCHAR(255),
+    friday VARCHAR(255),
+    saturday VARCHAR(255),
+    sunday VARCHAR(255),
+    PRIMARY KEY(opening_time_id)
 );
 
 /* ========== ALTER TABLES ========== */ 
@@ -164,3 +176,7 @@ VALUES
 ("Émile.Gagné@mail.com", "test", "Gagné", "Émile", 3),
 ("Céline.Paquette@mail.com", "test", "Paquette", "Céline", 2),
 ("Liane.Collin@mail.com", "test", "Collin", "Liane", 3);
+
+INSERT INTO opening_time (monday, tuesday, wednesday, thursday, friday, saturday, sunday)
+VALUES 
+("9H - 18H", "9H - 18H", "9H - 18H", "9H - 18H", "9H - 18H", "9H - 18H", "9H - 18H" );

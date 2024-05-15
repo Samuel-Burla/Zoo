@@ -15,7 +15,7 @@ if (array_key_exists("addUser", $_POST)) {
         $username = $_POST['username'];
         $password = $_POST['password'];
         $role_id = $_POST['role_id'];
-        if (iconv_strlen($first_name) > 0 && iconv_strlen($last_name) > 0 && iconv_strlen($username) > 0 && iconv_strlen($password) > 0 && $role_id) { //smaller than TEXT(1000)
+        if (iconv_strlen($first_name) > 0 && iconv_strlen($first_name) <= 255 && iconv_strlen($last_name) > 0 && iconv_strlen($last_name) <= 255 && iconv_strlen($username) > 0 && iconv_strlen($username) <= 255 &&  iconv_strlen($password) > 0 && iconv_strlen($password) <= 255 && $role_id == 2 || $role_id == 3) {
             addUser($pdo, $first_name, $last_name, $username, $password, $role_id);
             $messages['addUserMessage'] = "Ajout de l'utilisateur réussi !";
         } else {
@@ -34,10 +34,10 @@ if (array_key_exists("addUser", $_POST)) {
     <div class="d-flex align-items-center justify-content-between">
         <h1 class="my-4">Les employés</h1>
         <?php if (array_key_exists("addUserError", $errors)) { ?>
-                <div class="section_form_error">
-                    <p><?= $errors["addUserError"] ?></p>
-                </div>
-            <?php } else if (array_key_exists("addUserMessage", $messages)) { ?>
+            <div class="section_form_error">
+                <p><?= $errors["addUserError"] ?></p>
+            </div>
+        <?php } else if (array_key_exists("addUserMessage", $messages)) { ?>
             <div class="section_form_message">
                 <p><?= $messages["addUserMessage"] ?></p>
             </div>

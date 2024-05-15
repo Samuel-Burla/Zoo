@@ -13,7 +13,7 @@ if (array_key_exists("updateUser", $_POST)) {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
     $role_id = $_POST['role_id'];
-    if (iconv_strlen($first_name) > 0 && iconv_strlen($last_name) > 0 && iconv_strlen($username) > 0 && $role_id) { //smaller than TEXT(1000)
+    if (iconv_strlen($first_name) > 0 && iconv_strlen($first_name) <= 255 && iconv_strlen($last_name) > 0 && iconv_strlen($last_name) <= 255 && $role_id == 2 || $role_id == 3) {
         updateUser($pdo, $first_name, $last_name, $username, $role_id);
         $messages['updateUserMessage'] = 'Modification réussie !';
     } else {
@@ -59,7 +59,7 @@ if (array_key_exists("deleteUser", $_POST)) {
         <div class="section_form_input">
             <label for="role_id">Role</label>
             <input type="text" class="form-control" id="role_id" name="role_id" value="<?= $user['role_id'] ?>" />
-            <div id="emailHelp" class="form-text">role_id: vétérinaire: 2, employé: 3.</div>
+            <div id="role_id" class="form-text">role_id: vétérinaire: 2, employé: 3.</div>
         </div>
         <div class="section_form_button mt-2">
             <button class="button" type="submit" name="updateUser">Modifier l'utilisateur</button>

@@ -6,14 +6,16 @@ require_once __DIR__ . "../../lib/functions.php";
 $habitats = getHabitats($pdo);
 
 $errors = [];
+$messages = [];
 
 if (array_key_exists("addHabitat", $_POST)) {
     $habitat_name = $_POST['habitat_name'];
     $description = $_POST['description'];
-    if (iconv_strlen($habitat_name) > 0 && iconv_strlen($description) > 0) { //smaller than TEXT(1000)
+    if (iconv_strlen($habitat_name) > 0 && iconv_strlen($habitat_name) <= 255 && iconv_strlen($description) > 0 && iconv_strlen($description) <= 1000) {
         addHabitat($pdo, $habitat_name, $description);
+        $messages['addHabitatMessage'] = "Ajout de l'habitat réussi !";
     } else {
-        $errors["addServiceError"] = "Echec lors de la création de l'habitat !";
+        $errors["addHabitatError"] = "Echec lors de la création de l'habitat !";
     }
 }
 
@@ -23,11 +25,15 @@ if (array_key_exists("addHabitat", $_POST)) {
 <div class="container">
     <div class="d-flex align-items-center justify-content-between">
         <h1 class="my-4">Les habitats</h1>
-        <?php if (array_key_exists("addServiceError", $errors)) { ?>
+        <?php if (array_key_exists("addHabitatError", $errors)) { ?>
                 <div class="section_form_error">
-                    <p><?= $errors["addServiceError"] ?></p>
+                    <p><?= $errors["addHabitatError"] ?></p>
                 </div>
-            <?php } ?>
+            <?php } else if (array_key_exists("addHabitatMessage", $messages)) { ?>
+            <div class="section_form_message">
+                <p><?= $messages["addHabitatMessage"] ?></p>
+            </div>
+        <?php } ?>
         <a href="#" class="button p-2 me-2 h-50 text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal">Ajouter un habitat</a>
     </div>
     <div class="table">

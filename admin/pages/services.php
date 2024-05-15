@@ -9,12 +9,14 @@ $services = getServices($pdo);
 // $serviceDescription = $_POST['description'];
 
 $errors = [];
+$messages = [];
 
 if (array_key_exists("addService", $_POST)) {
     $serviceName = $_POST['name'];
     $serviceDescription = $_POST['description'];
-    if (iconv_strlen($serviceName) > 0 && iconv_strlen($serviceDescription) > 0) { //smaller than TEXT(1000)
+    if (iconv_strlen($serviceName) > 0 && iconv_strlen($serviceName) <= 255 && iconv_strlen($serviceDescription) > 0 && iconv_strlen($serviceDescription) <= 1000) {
         addService($pdo, $serviceName, $serviceDescription);
+        $messages['addServiceMessage'] = "Ajout du service réussi !";
     } else {
         $errors["addServiceError"] = "Echec lors de la création du service !";
     }
@@ -26,11 +28,15 @@ if (array_key_exists("addService", $_POST)) {
     <div class="d-flex align-items-center justify-content-between">
         <h1 class="my-4">Les services</h1>
         <?php if (array_key_exists("addServiceError", $errors)) { ?>
-                <div class="section_form_error">
-                    <p><?= $errors["addServiceError"] ?></p>
-                </div>
-            <?php } ?>
-        <a href="#" class="button p-2 me-2 h-50 text-decoration-none" data-bs-toggle="modal" data-bs-target="#setServiceModal">Ajouter un service</a>
+            <div class="section_form_error">
+                <p><?= $errors["addServiceError"] ?></p>
+            </div>
+        <?php } else if (array_key_exists("addServiceMessage", $messages)) { ?>
+            <div class="section_form_message">
+                <p><?= $messages["addServiceMessage"] ?></p>
+            </div>
+        <?php } ?>
+        <a href="#" class="button p-2 me-2 h-50 text-decoration-none" data-bs-toggle="modal" data-bs-target="#ServiceModal">Ajouter un service</a>
     </div>
     <div class="table">
         <div class="table_head table_head_services">
@@ -56,7 +62,7 @@ if (array_key_exists("addService", $_POST)) {
     </div>
 </div>
 <!-- Modal setService -->
-<div class="modal fade" id="setServiceModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="ServiceModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <h2 class="m-2">Ajouter un service</h2>

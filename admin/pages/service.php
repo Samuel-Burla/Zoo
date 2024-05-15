@@ -6,21 +6,23 @@ require_once __DIR__ . "../../lib/functions.php";
 $service_id = $_GET['service_id'];
 $service = getService($pdo, $service_id);
 
-// $serviceName = $_POST['name'];
-// $serviceDescription = $_POST['description'];
-
 $errors = [];
+$messages = [];
 
 if (array_key_exists("updateService", $_POST)) {
     $serviceName = $_POST['name'];
     $serviceDescription = $_POST['description'];
-    updateService($pdo, $serviceName, $serviceDescription, $service_id);
-} else {
-    $errors["updateServiceError"] = "Modification échouée !";
+    if(iconv_strlen($serviceName) > 0 && iconv_strlen($serviceName) <= 255 && iconv_strlen($serviceDescription) > 0 && iconv_strlen($serviceDescription) <= 1000){
+        updateService($pdo, $serviceName, $serviceDescription, $service_id);
+        $messages['updateServiceMessage'] = 'Modification réussie !';
+    } else {
+        $errors["updateServiceError"] = "Modification échouée !";
+    }
 }
 
 if (array_key_exists("deleteService", $_POST)) {
     deleteService($pdo, $service_id);
+    $messages['deleteServiceMessage'] = 'Suppression réussie !';
 } else {
     $errors["deleteServiceError"] = "Suppression échouée !";
 }
@@ -28,8 +30,21 @@ if (array_key_exists("deleteService", $_POST)) {
 ?>
 
 <div class="container">
-    <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex flex-column">
         <h1 class="my-4"><?=$service['service_name']?></h1>
+        <?php if (array_key_exists("updateServiceError", $errors)) { ?>
+            <div class="section_form_error">
+                <p><?= $errors["updateServiceError"] ?></p>
+            </div>
+        <?php } else if (array_key_exists("updateServiceMessage", $messages)) { ?>
+            <div class="section_form_message">
+                <p><?= $messages["updateServiceMessage"] ?></p>
+            </div>
+        <?php } else if (array_key_exists("deleteServiceMessage", $messages)) { ?>
+            <div class="section_form_message">
+                <p><?= $messages["deleteServiceMessage"] ?></p>
+            </div>
+        <?php } ?>
     </div>
     <form class="section_form m-2" method="POST">
         <div class="section_form_input my-2">

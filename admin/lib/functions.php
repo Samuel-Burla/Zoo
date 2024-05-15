@@ -2,6 +2,29 @@
 require_once __DIR__ . "../../../lib/pdo.php";
 require_once __DIR__ . "../../../lib/config.php";
 
+/* ============= Opening Time =========== */
+function getOpeningTime(PDO $pdo): array
+{
+    $query = $pdo->prepare("SELECT * FROM opening_time");
+    $query->execute();
+
+    $opening_time = $query->fetch(PDO::FETCH_ASSOC);
+    return $opening_time;
+}
+
+function updateOpeningTime(PDO $pdo, string $monday, string $tuesday, string $wednesday, string $thursday, string $friday, string $saturday, string $sunday)
+{
+    $sql = "UPDATE opening_time SET monday=:monday, tuesday=:tuesday, wednesday=:wednesday, thursday=:thursday, friday=:friday, saturday=:saturday, sunday=:sunday WHERE opening_time_id=1";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(":monday", $monday, PDO::PARAM_STR);
+    $query->bindValue(":tuesday", $tuesday, PDO::PARAM_STR);
+    $query->bindValue(":wednesday", $wednesday, PDO::PARAM_STR);
+    $query->bindValue(":thursday", $thursday, PDO::PARAM_STR);
+    $query->bindValue(":friday", $friday, PDO::PARAM_STR);
+    $query->bindValue(":saturday", $saturday, PDO::PARAM_STR);
+    $query->bindValue(":sunday", $sunday, PDO::PARAM_STR);
+    $query->execute();
+}
 
 
 /* ============= Services =========== */
@@ -107,6 +130,45 @@ function getAnimals(PDO $pdo): array
 
     $animals = $query->fetchAll(PDO::FETCH_ASSOC);
     return $animals;
+}
+
+function getAnimal(PDO $pdo, int $animal_id): array
+{
+    $query = $pdo->prepare("SELECT * FROM animal JOIN class ON animal.class_id=class.class_id JOIN habitat ON animal.habitat_id=habitat.habitat_id WHERE animal_id=:animal_id");
+    $query->bindValue(":animal_id", $animal_id);
+    $query->execute();
+
+    $animal = $query->fetch(PDO::FETCH_ASSOC);
+    return $animal;
+}
+
+function addAnimal(PDO $pdo, string $animal_name, int $habitat_id, int $class_id)
+{
+    $sql = "INSERT INTO animal (animal_name, habitat_id, class_id) VALUES (:animal_name, :habitat_id, :class_id)";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(":animal_name", $animal_name, PDO::PARAM_STR);
+    $query->bindValue(":habitat_id", $habitat_id, PDO::PARAM_INT);
+    $query->bindValue(":class_id", $class_id, PDO::PARAM_INT);
+    $query->execute();
+}
+
+function updateAnimal(PDO $pdo, int $animal_id, string $animal_name, int $habitat_id, int $class_id)
+{
+    $sql = "UPDATE animal SET animal_name=:animal_name, habitat_id=:habitat_id, class_id=:class_id WHERE animal_id=:animal_id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(":animal_id", $animal_id, PDO::PARAM_INT);
+    $query->bindValue(":animal_name", $animal_name, PDO::PARAM_STR);
+    $query->bindValue(":habitat_id", $habitat_id, PDO::PARAM_INT);
+    $query->bindValue(":class_id", $class_id, PDO::PARAM_INT);
+    $query->execute();
+}
+
+function deleteAnimal(PDO $pdo, int $animal_id)
+{
+    $sql = "DELETE FROM animal WHERE animal_id=:animal_id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(":animal_id", $animal_id, PDO::PARAM_INT);
+    $query->execute();
 }
 
 function addImage(PDO $pdo, $image_data, INT $habitat_id)

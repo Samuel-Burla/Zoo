@@ -8,10 +8,6 @@
 /* Colors */
 /* Dark gray*/
 /* Text */
-button {
-  border: 0;
-}
-
 .button {
   color: #212427;
   background-color: #86e660;
@@ -137,7 +133,7 @@ body {
   footer {
     background-color: #596643;
     width: 100%;
-    height: 300px;
+    height: 320px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -162,7 +158,7 @@ body {
   footer {
     background-color: #596643;
     width: 100%;
-    height: 200px;
+    height: 270px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -188,7 +184,7 @@ body {
 /* =========== Main ============ */
 @media screen and (max-width: 480px) {
   main {
-    min-height: calc(100vh - 352px);
+    min-height: calc(100vh - 372px);
   }
   h2 {
     color: #212427;

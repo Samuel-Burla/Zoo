@@ -11,6 +11,15 @@ function getServices(PDO $pdo) : array
     return $services;
 }
 
+function getOpeningTime(PDO $pdo) : array
+{
+    $query = $pdo-> prepare("SELECT * FROM opening_time");
+    $query -> execute();
+    
+    $opening_time = $query->fetch(PDO::FETCH_ASSOC);
+    return $opening_time;
+}
+
 function getHabitats(PDO $pdo) : array
 {
     $query = $pdo-> prepare("SELECT * FROM habitat");

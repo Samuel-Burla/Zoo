@@ -1,15 +1,23 @@
+<?php
+
+$opening_time = getOpeningTime($pdo)
+
+
+?>
+
 </main>
 <footer>
     <div class="footer_content">
         <h2>
             Horaire d'ouverture
         </h2>
-        <p>Lundi : 9H - 18H <br>
-            Mardi : 9H - 18H<br>
-            Mercredi : 9H - 18H<br>
-            Jeudi : 9H - 18H<br>
-            Vendredi : 9H - 18H<br>
-            Samedi : 9H - 18H</p>
+        <p>Lundi : <?= $opening_time["monday"] ?> <br>
+            Mardi : <?= $opening_time["tuesday"] ?><br>
+            Mercredi : <?= $opening_time["wednesday"] ?><br>
+            Jeudi : <?= $opening_time["thursday"] ?><br>
+            Vendredi : <?= $opening_time["friday"] ?><br>
+            Samedi : <?= $opening_time["saturday"] ?><br>
+            Dimanche : <?= $opening_time["sunday"] ?></p>
     </div>
     <div class="footer_content">
         <h2>Contact</h2>
