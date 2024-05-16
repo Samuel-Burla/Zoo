@@ -2,7 +2,7 @@
 require_once __DIR__ . "../../templates/header.php";
 
 $animal_id = $_GET["id"];
-$animal = getAnimalsByHabitat($pdo, $animal_id);
+$animal = getAnimal($pdo, $animal_id);
 ?>
 
 <section class="section_bigTitle">

@@ -57,6 +57,8 @@ CREATE TABLE IF NOT EXISTS `animal`(
     animal_id INT NOT NULL AUTO_INCREMENT,
     animal_name VARCHAR(255) NOT NULL,
     animal_condition VARCHAR(255),
+    food VARCHAR(255),
+    food_weight VARCHAR(255),
     veterinary_opinion_id INT,
     habitat_id INT,
     class_id INT,
@@ -67,8 +69,10 @@ CREATE TABLE IF NOT EXISTS `animal`(
 
 CREATE TABLE IF NOT EXISTS `veterinary_opinion`(
     veterinary_opinion_id INT NOT NULL AUTO_INCREMENT,
-    date DATE NOT NULL,
-    detail VARCHAR(255) NOT NULL,
+    date INT NOT NULL,
+    recommended_food VARCHAR(255) NOT NULL,
+    recommended_food_weight VARCHAR(255) NOT NULL,
+    animal_condition_details VARCHAR(255),
     username VARCHAR(255),
     animal_id INT,
     PRIMARY KEY(veterinary_opinion_id),

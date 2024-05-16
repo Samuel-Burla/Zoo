@@ -39,9 +39,10 @@ if (array_key_exists("addAnimal", $_POST)) {
             <div class="table_head_text">N°</div>
             <div class="table_head_text">Nom</div>
             <div class="table_head_text">Condition</div>
-            <div class="table_head_text">Opinion du Vetérinaire</div>
             <div class="table_head_text">Habitat</div>
             <div class="table_head_text">Classe</div>
+            <div class="table_head_text">Nourriture</div>
+            <div class="table_head_text">Grammage</div>
             <div class="table_head_text">Actions</div>
         </div>
         <?php foreach ($animals as $key => $animal) { ?>
@@ -52,9 +53,10 @@ if (array_key_exists("addAnimal", $_POST)) {
                 <div class="table_body_text"><?= $animal['animal_id'] ?></div>
                 <div class="table_body_text"><?= $animal['animal_name'] ?></div>
                 <div class="table_body_text"><?= $animal['animal_condition'] ?></div>
-                <div class="table_body_text"><?= $animal['veterinary_opinion_id'] ?></div>
                 <div class="table_body_text"><?= $animal['habitat_name'] ?></div>
                 <div class="table_body_text"><?= $animal['class_label'] ?></div>
+                <div class="table_body_text"><?= $animal['food'] ?></div>
+                <div class="table_body_text"><?= $animal['food_weight'] ?></div>
                 <div>
                     <a href="/admin/pages/animal.php?animal_id=<?= $animal['animal_id'] ?>" class="table_head_text actionButton">Modifier</a>
                     <a href="/admin/pages/animal.php?animal_id=<?= $animal['animal_id'] ?>" class="table_head_text actionButton deleteButton">Supprimer</a>

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__."/pdo.php";
+require_once __DIR__ . "/pdo.php";
 
 
 /* ============= admin only =========== */
@@ -138,13 +138,13 @@ function getAnimals(PDO $pdo): array
     $animals = $query->fetchAll(PDO::FETCH_ASSOC);
     return $animals;
 }
-function getAnimalsByHabitat(PDO $pdo, int $habitat_id) : array
+function getAnimalsByHabitat(PDO $pdo, int $habitat_id): array
 {
     $sql = "SELECT * FROM animal WHERE habitat_id=:habitat_id";
-    $query = $pdo-> prepare($sql);
+    $query = $pdo->prepare($sql);
     $query->bindValue(":habitat_id", $habitat_id);
-    $query -> execute();
-    
+    $query->execute();
+
     $animals = $query->fetchAll(PDO::FETCH_ASSOC);
     return $animals;
 }
@@ -165,7 +165,7 @@ function getAnimal(PDO $pdo, int $animal_id): array
 //     $query = $pdo-> prepare($sql);
 //     $query->bindValue(":animal_id", $animal_id, PDO::PARAM_INT);
 //     $query -> execute();
-    
+
 //     $animal = $query->fetch(PDO::FETCH_ASSOC);
 //     return $animal;
 // }
@@ -180,12 +180,13 @@ function addAnimal(PDO $pdo, string $animal_name, int $habitat_id, int $class_id
     $query->execute();
 }
 
-function updateAnimal(PDO $pdo, int $animal_id, string $animal_name, int $habitat_id, int $class_id)
+function updateAnimal(PDO $pdo, int $animal_id, string $animal_name, string $animal_condition, int $habitat_id, int $class_id)
 {
-    $sql = "UPDATE animal SET animal_name=:animal_name, habitat_id=:habitat_id, class_id=:class_id WHERE animal_id=:animal_id";
+    $sql = "UPDATE animal SET animal_name=:animal_name, animal_condition=:animal_condition, habitat_id=:habitat_id, class_id=:class_id WHERE animal_id=:animal_id";
     $query = $pdo->prepare($sql);
     $query->bindValue(":animal_id", $animal_id, PDO::PARAM_INT);
     $query->bindValue(":animal_name", $animal_name, PDO::PARAM_STR);
+    $query->bindValue(":animal_condition", $animal_condition, PDO::PARAM_STR);
     $query->bindValue(":habitat_id", $habitat_id, PDO::PARAM_INT);
     $query->bindValue(":class_id", $class_id, PDO::PARAM_INT);
     $query->execute();
@@ -258,13 +259,13 @@ function getUser(PDO $pdo, string $username): array
     $user = $query->fetch(PDO::FETCH_ASSOC);
     return $user;
 }
-function getUserAndRole(PDO $pdo, string|null $username) : array|bool
+function getUserAndRole(PDO $pdo, string|null $username): array|bool
 {
     $sql = "SELECT * FROM user JOIN role ON user.role_id=role.role_id WHERE user.username=:username";
-    $query = $pdo-> prepare($sql);
+    $query = $pdo->prepare($sql);
     $query->bindValue("username", $username);
-    $query -> execute();
-    
+    $query->execute();
+
     $user = $query->fetch(PDO::FETCH_ASSOC);
     return $user;
 }
@@ -303,7 +304,7 @@ function deleteUser(PDO $pdo, string $username)
     $query->execute();
 }
 
-function getImages(PDO $pdo, INT $image_id) : array
+function getImages(PDO $pdo, INT $image_id): array
 {
     $sql = "SELECT * FROM image WHERE image_id=:image_id";
     $query = $pdo->prepare($sql);
@@ -317,4 +318,55 @@ function getImages(PDO $pdo, INT $image_id) : array
     $images = $query->fetchAll(PDO::FETCH_ASSOC);
 
     return $images;
+}
+
+/* ============= Veterinarian opinion =========== */
+function getVeterinarianOpinions(PDO $pdo): array
+{
+    $query = $pdo->prepare("SELECT * FROM veterinary_opinion");
+    $query->execute();
+
+    $veterinary_opinions = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $veterinary_opinions;
+}
+
+function getVeterinarianOpinion(PDO $pdo, int $service_id): array
+{
+    $query = $pdo->prepare("SELECT * FROM service WHERE service_id=:service_id");
+    $query->bindValue(":service_id", $service_id, PDO::PARAM_INT);
+    $query->execute();
+
+    $service = $query->fetch(PDO::FETCH_ASSOC);
+    return $service;
+}
+
+function addVeterinarianOpinion(PDO $pdo, string $recommended_food, string $recommended_food_weight, string $animal_condition_details, string $username, int $date, int $animal_id)
+{
+    $sql = "INSERT INTO veterinary_opinion (recommended_food, recommended_food_weight,animal_condition_details, username, date, animal_id ) VALUES (:recommended_food, :recommended_food_weight, :animal_condition_details, :username, :date, :animal_id)";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(":recommended_food", $recommended_food, PDO::PARAM_STR);
+    $query->bindValue(":recommended_food_weight", $recommended_food_weight, PDO::PARAM_STR);
+    $query->bindValue(":animal_condition_details", $animal_condition_details, PDO::PARAM_STR);
+    $query->bindValue(":username", $username, PDO::PARAM_STR);
+    $query->bindValue(":date", $date, PDO::PARAM_INT);
+    $query->bindValue(":animal_id", $animal_id, PDO::PARAM_INT);
+    $query->execute();
+}
+
+function updateVeterinarianOpinion(PDO $pdo, string $serviceName, string $serviceDescription, int $service_id)
+{
+    $sql = "UPDATE service SET service_name=:serviceName, description=:serviceDescription WHERE service_id=:service_id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(":serviceName", $serviceName, PDO::PARAM_STR);
+    $query->bindValue(":serviceDescription", $serviceDescription, PDO::PARAM_STR);
+    $query->bindValue(":service_id", $service_id, PDO::PARAM_INT);
+    $query->execute();
+}
+
+function deleteVeterinarianOpinion(PDO $pdo, int $service_id)
+{
+    $sql = "DELETE FROM service WHERE service_id=:service_id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(":service_id", $service_id, PDO::PARAM_INT);
+    $query->execute();
 }
