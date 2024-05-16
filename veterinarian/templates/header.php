@@ -1,7 +1,9 @@
 <?php
 require_once __DIR__ . "../../lib/menu.php";
-require_once __DIR__ . "../../../lib/functions.php";
 require_once __DIR__ . "../../../lib/pdo.php";
+require_once __DIR__ . "../../../lib/functions.php";
+
+
 ?>
 
 <!DOCTYPE html>
@@ -11,14 +13,14 @@ require_once __DIR__ . "../../../lib/pdo.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/admin/assets/css/styles.css">
+    <link rel="stylesheet" href="/veterinarian/assets/css/styles.css">
     <title>Document</title>
 </head>
 
 <body class="d-flex">
     <header class="mobile">
         <div class="menu_logo">
-            <a href="/admin">Arcadia</a>
+            <a href="/">Arcadia</a>
         </div>
         <div class="menu">
             <ul class="menu_list" id="menu">
@@ -36,14 +38,14 @@ require_once __DIR__ . "../../../lib/pdo.php";
     </header>
     <header class="desktop">
         <div class="d-flex bootstrap_sidebar flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
-            <a href="/admin" class="d-flex m-3 align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <span class="fs-4">Dashboard Admin</span>
+            <a href="/veterinarian" class="d-flex m-3 align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <span class="fs-4">Dashboard Veterinarian</span>
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <?php foreach ($menu as $key => $menuItem) { ?>
                     <li class="nav-item">
-                        <a href="/admin/<?php if ($key == "index.php") {
+                        <a href="/veterinarian/<?php if ($key == "index.php") {
                                             echo "index.php";
                                         } else {
                                             echo "pages/" . $key;

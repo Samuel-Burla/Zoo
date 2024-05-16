@@ -1,7 +1,5 @@
 <?php
 require_once __DIR__ . "../../templates/header.php";
-require_once __DIR__ . "../../lib/pdo.php";
-require_once __DIR__ . "../../lib/functions.php";
 
 
 $habitats = getHabitats($pdo);
@@ -37,5 +35,5 @@ $habitats = getHabitats($pdo);
 </section>
 
 <?php
-require_once __DIR__."../../templates/footer.php";
+require_once __DIR__ . "../../templates/footer.php";
 ?>

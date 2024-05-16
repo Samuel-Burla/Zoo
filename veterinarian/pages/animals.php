@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . "../../templates/header.php";
+
 $animals = getAnimals($pdo);
 $habitats = getHabitats($pdo);
 

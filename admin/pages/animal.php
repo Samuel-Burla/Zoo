@@ -1,8 +1,5 @@
 <?php
 require_once __DIR__ . "../../templates/header.php";
-require_once __DIR__ . "../../../lib/pdo.php";
-require_once __DIR__ . "../../lib/functions.php";
-
 $animal_id = $_GET['animal_id'];
 $animal = getAnimal($pdo, $animal_id);
 

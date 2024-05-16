@@ -1,7 +1,5 @@
 <?php
 require_once __DIR__ . "../../templates/header.php";
-require_once __DIR__ . "../../../lib/pdo.php";
-require_once __DIR__ . "../../lib/functions.php";
 
 $service_id = $_GET['service_id'];
 $service = getService($pdo, $service_id);

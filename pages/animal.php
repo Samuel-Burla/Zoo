@@ -1,10 +1,8 @@
 <?php
 require_once __DIR__ . "../../templates/header.php";
-require_once __DIR__ . "../../lib/pdo.php";
-require_once __DIR__ . "../../lib/functions.php";
 
 $animal_id = $_GET["id"];
-$animal = getAnimal($pdo, $animal_id);
+$animal = getAnimalsByHabitat($pdo, $animal_id);
 ?>
 
 <section class="section_bigTitle">
@@ -48,5 +46,5 @@ $animal = getAnimal($pdo, $animal_id);
 
 
 <?php
-require_once __DIR__."../../templates/footer.php";
+require_once __DIR__ . "../../templates/footer.php";
 ?>

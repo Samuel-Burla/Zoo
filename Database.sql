@@ -153,8 +153,8 @@ VALUES
 ("Requin Blanc", "Bon état", 5 , 4 ),
 ("Piranha", "Bon état", 5 , 4 ),
 ("flamant rose", "mauvais etat", 5, 2),
-("faucon", "plus ou moins état", 5, 2),
-("Aigle", "mauvais etat", 5, 2);
+("faucon", "plus ou moins état", 6, 2),
+("Aigle", "mauvais etat", 6, 2);
 
 
 INSERT INTO role (role_label)

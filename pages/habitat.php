@@ -1,7 +1,5 @@
 <?php
 require_once __DIR__ . "../../templates/header.php";
-require_once __DIR__ . "../../lib/pdo.php";
-require_once __DIR__ . "../../lib/functions.php";
 
 if (array_key_exists("id", $_GET)) {
     $allHabitats = getHabitats($pdo);
@@ -16,7 +14,7 @@ if (array_key_exists("id", $_GET)) {
     header('Location: /pages/error404.php');
 }
 
-$animals = getAnimals($pdo, $habitatId);
+$animals = getAnimalsByHabitat($pdo, $habitatId);
 
 
 ?>
