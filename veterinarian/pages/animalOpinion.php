@@ -17,11 +17,11 @@ $messages = [];
 
 
 // if (array_key_exists("addAnimal", $_POST)) {
-//     $animal_name = $_POST['animal_name'];
+//     $animal_race = $_POST['animal_race'];
 //     $habitat_id = $_POST['habitat_id'];
 //     $class_id = $_POST['class_id'];
-//     if (iconv_strlen($animal_name) > 0 && iconv_strlen($animal_name) <= 255 && $habitat_id > 0 && $habitat_id <= count($habitats) && $class_id > 0 && $class_id <= 5) {
-//         addAnimal($pdo, $animal_name, $habitat_id, $class_id);
+//     if (iconv_strlen($animal_race) > 0 && iconv_strlen($animal_race) <= 255 && $habitat_id > 0 && $habitat_id <= count($habitats) && $class_id > 0 && $class_id <= 5) {
+//         addAnimal($pdo, $animal_race, $habitat_id, $class_id);
 //         $messages['addAnimalMessage'] = "Ajout de l'animal réussi !";
 //     } else {
 //         $errors["addAnimalError"] = "Echec lors de l'ajout de l'animal !";
@@ -31,12 +31,12 @@ $messages = [];
 
 <div class="container">
     <div class="d-flex align-items-center justify-content-between">
-        <h1 class="my-4">Notre <?= $animal['animal_name'] ?></h1>
+        <h1 class="my-4">Notre <?= $animal['animal_race'] ?></h1>
     </div>
     <div class="table">
         <div class="table_head table_head_opinion_animals">
             <div class="table_head_text">N°</div>
-            <div class="table_head_text">Nom</div>
+            <div class="table_head_text">Race</div>
             <div class="table_head_text">Nourriture recommendée</div>
             <div class="table_head_text">Grammage recommendée</div>
             <div class="table_head_text">Détail Condition animal</div>
@@ -50,7 +50,7 @@ $messages = [];
                                                             echo "striped";
                                                         } ?>">
                 <div class="table_body_text"><?= $veterinary_opinion['veterinary_opinion_id'] ?></div>
-                <div class="table_body_text"><?= $animal['animal_name'] ?></div>
+                <div class="table_body_text"><?= $animal['animal_race'] ?></div>
                 <div class="table_body_text"><?= $veterinary_opinion['recommended_food'] ?></div>
                 <div class="table_body_text"><?= $veterinary_opinion['recommended_food_weight'] ?></div>
                 <div class="table_body_text"><?= $veterinary_opinion['animal_condition_details'] ?></div>

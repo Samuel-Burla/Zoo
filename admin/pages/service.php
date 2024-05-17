@@ -51,7 +51,7 @@ if (array_key_exists("deleteService", $_POST)) {
         </div>
         <div class="section_form_input">
             <label for="description">Description</label>
-            <input type="textarea" class="form-control" id="description" name="description" value="<?=$service['description']?>" />
+            <textarea type="textarea" class="form-control" id="description" name="description" rows="5" ><?=$service['description']?></textarea>
         </div>
         <div class="section_form_button mt-2">
             <button class="button" type="submit" name="updateService">Modifier</button>

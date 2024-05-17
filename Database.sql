@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `class`(
 
 CREATE TABLE IF NOT EXISTS `animal`(
     animal_id INT NOT NULL AUTO_INCREMENT,
-    animal_name VARCHAR(255) NOT NULL,
+    animal_race VARCHAR(255) NOT NULL,
     animal_condition VARCHAR(255),
     food VARCHAR(255),
     food_weight VARCHAR(255),
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `veterinary_opinion`(
 
 CREATE TABLE IF NOT EXISTS `opinion`(
     opinion_id INT NOT NULL AUTO_INCREMENT,
-    pseudo VARCHAR(255),
+    pseudo VARCHAR(50),
     comment VARCHAR(255),
     isVisible BIT NOT NULL DEFAULT 0,
     PRIMARY KEY(opinion_id)
@@ -136,7 +136,7 @@ VALUES
 ("poissons"),
 ("amphibiens");
 
-INSERT INTO animal (animal_name, animal_condition, habitat_id, class_id)
+INSERT INTO animal (animal_race, animal_condition, habitat_id, class_id)
 VALUES 
 ("Lézard", "Bon état", 1 , 3 ),
 ("Chameau", "Bon état", 1 , 1 ),
@@ -184,3 +184,27 @@ VALUES
 INSERT INTO opening_time (monday, tuesday, wednesday, thursday, friday, saturday, sunday)
 VALUES 
 ("9H - 18H", "9H - 18H", "9H - 18H", "9H - 18H", "9H - 18H", "9H - 18H", "9H - 18H" );
+
+INSERT INTO veterinary_opinion (date, recommended_food, recommended_food_weight, animal_condition_details, username, animal_id)
+VALUES 
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 1 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 2 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 3 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 4 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 5 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 6 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 7 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 8 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 9 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 10 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 11 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 12 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 13 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 14 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 15 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 16 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 17 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 18 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 19 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 20 ),
+(1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 21 );

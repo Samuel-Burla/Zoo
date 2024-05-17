@@ -45,7 +45,7 @@ $animals = getAnimalsByHabitat($pdo, $habitatId);
                 <div class="section_animals_card_content">
                     <img src="/assets/images/profile.jpg" alt="profile">
                     <div class="section_animals_card_name ">
-                        <h2><?= $animal["animal_name"] ?></h2>
+                        <h2><?= $animal["animal_race"] ?></h2>
                     </div>
                     <div class="section_animals_card_text">
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta voluptates

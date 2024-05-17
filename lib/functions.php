@@ -34,6 +34,16 @@ function updateOpeningTime(PDO $pdo, string $monday, string $tuesday, string $we
 }
 
 
+/* ============= Comment ============ */
+function addComment(PDO $pdo, string $pseudo, string $comment)
+{
+    $sql = "INSERT INTO opinion (pseudo, comment, isVisible	) VALUES (:pseudo, :comment, FALSE)";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(":pseudo", $pseudo, PDO::PARAM_STR);
+    $query->bindValue(":comment", $comment, PDO::PARAM_STR);
+    $query->execute();
+}
+
 /* ============= Services =========== */
 function getServices(PDO $pdo): array
 {
@@ -170,22 +180,22 @@ function getAnimal(PDO $pdo, int $animal_id): array
 //     return $animal;
 // }
 
-function addAnimal(PDO $pdo, string $animal_name, int $habitat_id, int $class_id)
+function addAnimal(PDO $pdo, string $animal_race, int $habitat_id, int $class_id)
 {
-    $sql = "INSERT INTO animal (animal_name, habitat_id, class_id) VALUES (:animal_name, :habitat_id, :class_id)";
+    $sql = "INSERT INTO animal (animal_race, habitat_id, class_id) VALUES (:animal_race, :habitat_id, :class_id)";
     $query = $pdo->prepare($sql);
-    $query->bindValue(":animal_name", $animal_name, PDO::PARAM_STR);
+    $query->bindValue(":animal_race", $animal_race, PDO::PARAM_STR);
     $query->bindValue(":habitat_id", $habitat_id, PDO::PARAM_INT);
     $query->bindValue(":class_id", $class_id, PDO::PARAM_INT);
     $query->execute();
 }
 
-function updateAnimal(PDO $pdo, int $animal_id, string $animal_name, string $animal_condition, int $habitat_id, int $class_id)
+function updateAnimal(PDO $pdo, int $animal_id, string $animal_race, string $animal_condition, int $habitat_id, int $class_id)
 {
-    $sql = "UPDATE animal SET animal_name=:animal_name, animal_condition=:animal_condition, habitat_id=:habitat_id, class_id=:class_id WHERE animal_id=:animal_id";
+    $sql = "UPDATE animal SET animal_race=:animal_race, animal_condition=:animal_condition, habitat_id=:habitat_id, class_id=:class_id WHERE animal_id=:animal_id";
     $query = $pdo->prepare($sql);
     $query->bindValue(":animal_id", $animal_id, PDO::PARAM_INT);
-    $query->bindValue(":animal_name", $animal_name, PDO::PARAM_STR);
+    $query->bindValue(":animal_race", $animal_race, PDO::PARAM_STR);
     $query->bindValue(":animal_condition", $animal_condition, PDO::PARAM_STR);
     $query->bindValue(":habitat_id", $habitat_id, PDO::PARAM_INT);
     $query->bindValue(":class_id", $class_id, PDO::PARAM_INT);
@@ -330,14 +340,14 @@ function getVeterinarianOpinions(PDO $pdo): array
     return $veterinary_opinions;
 }
 
-function getVeterinarianOpinion(PDO $pdo, int $service_id): array
+function getVeterinarianOpinion(PDO $pdo, int $animal_id): array
 {
-    $query = $pdo->prepare("SELECT * FROM service WHERE service_id=:service_id");
-    $query->bindValue(":service_id", $service_id, PDO::PARAM_INT);
+    $query = $pdo->prepare("SELECT * FROM veterinary_opinion WHERE animal_id=:animal_id");
+    $query->bindValue(":animal_id", $animal_id, PDO::PARAM_INT);
     $query->execute();
 
-    $service = $query->fetch(PDO::FETCH_ASSOC);
-    return $service;
+    $veterinarianOpinion = $query->fetch(PDO::FETCH_ASSOC);
+    return $veterinarianOpinion;
 }
 
 function addVeterinarianOpinion(PDO $pdo, string $recommended_food, string $recommended_food_weight, string $animal_condition_details, string $username, int $date, int $animal_id)

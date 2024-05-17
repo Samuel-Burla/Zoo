@@ -9,11 +9,11 @@ $messages = [];
 
 
 if (array_key_exists("addAnimal", $_POST)) {
-    $animal_name = $_POST['animal_name'];
+    $animal_race = $_POST['animal_race'];
     $habitat_id = $_POST['habitat_id'];
     $class_id = $_POST['class_id'];
-    if (iconv_strlen($animal_name) > 0 && iconv_strlen($animal_name) <= 255 && $habitat_id > 0 && $habitat_id <= count($habitats) && $class_id > 0 && $class_id <= 5) {
-        addAnimal($pdo, $animal_name, $habitat_id, $class_id);
+    if (iconv_strlen($animal_race) > 0 && iconv_strlen($animal_race) <= 255 && $habitat_id > 0 && $habitat_id <= count($habitats) && $class_id > 0 && $class_id <= 5) {
+        addAnimal($pdo, $animal_race, $habitat_id, $class_id);
         $messages['addAnimalMessage'] = "Ajout de l'animal réussi !";
     } else {
         $errors["addAnimalError"] = "Echec lors de l'ajout de l'animal !";
@@ -28,7 +28,7 @@ if (array_key_exists("addAnimal", $_POST)) {
     <div class="table">
         <div class="table_head table_head_animals">
             <div class="table_head_text">N°</div>
-            <div class="table_head_text">Nom</div>
+            <div class="table_head_text">Race</div>
             <div class="table_head_text">Condition</div>
             <div class="table_head_text">Habitat</div>
             <div class="table_head_text">Classe</div>
@@ -42,7 +42,7 @@ if (array_key_exists("addAnimal", $_POST)) {
                                                             echo "striped";
                                                         } ?>">
                 <div class="table_body_text"><?= $animal['animal_id'] ?></div>
-                <div class="table_body_text"><?= $animal['animal_name'] ?></div>
+                <div class="table_body_text"><?= $animal['animal_race'] ?></div>
                 <div class="table_body_text"><?= $animal['animal_condition'] ?></div>
                 <div class="table_body_text"><?= $animal['habitat_name'] ?></div>
                 <div class="table_body_text"><?= $animal['class_label'] ?></div>

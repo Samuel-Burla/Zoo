@@ -52,7 +52,7 @@ if (array_key_exists("deleteHabitat", $_POST)) {
         </div>
         <div class="section_form_input">
             <label for="description">Decription</label>
-            <input type="text" class="form-control" id="description" name="description" value="<?= $habitat['description'] ?>" />
+            <textarea type="text" class="form-control" id="description" name="description" rows="5" ><?= $habitat['description'] ?></textarea>
         </div>
         <div class="section_form_button mt-2">
             <button class="button" type="submit" name="updateHabitat">Modifier l'habitat</button>

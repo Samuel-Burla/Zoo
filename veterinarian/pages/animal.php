@@ -15,7 +15,7 @@ $errors = [];
 $messages = [];
 
 if ($animal && array_key_exists("addVeterinarianOpinion", $_POST)) {
-    $animal_name = $animal['animal_name'];
+    $animal_race = $animal['animal_race'];
     $animal_condition = $_POST['animal_condition'];
     $habitat_id = $animal['habitat_id'];
     $class_id = $animal['class_id'];
@@ -29,7 +29,7 @@ if ($animal && array_key_exists("addVeterinarianOpinion", $_POST)) {
     // $date = new DateTime($dateInput);//('d m Y, H:i')
     if ($timestamp && $animal_id && iconv_strlen($recommended_food) > 0 && iconv_strlen($recommended_food) <= 255 && iconv_strlen($recommended_food_weight) > 0 && iconv_strlen($recommended_food_weight) <= 255 && iconv_strlen($animal_condition_details) > 0 && iconv_strlen($animal_condition_details) <= 255 && iconv_strlen($recommended_food) > 0 && iconv_strlen($recommended_food) <= 255 && iconv_strlen($username) > 0 && iconv_strlen($username) <= 255) {
         addVeterinarianOpinion($pdo, $recommended_food, $recommended_food_weight, $animal_condition_details, $username, $timestamp, $animal_id);
-        updateAnimal($pdo, $animal_id, $animal_name, $animal_condition, $habitat_id, $class_id);
+        updateAnimal($pdo, $animal_id, $animal_race, $animal_condition, $habitat_id, $class_id);
         $messages['addOpinionMessage'] = 'Ajout réussi !';
     } else {
         $errors["addOpinionError"] = "Ajout échouée !";
@@ -50,7 +50,7 @@ if ($animal && array_key_exists("addVeterinarianOpinion", $_POST)) {
 
 <div class="container">
     <div class="d-flex flex-column">
-        <h1 class="my-4">Avis du vétérinaire - <?= $animal['animal_name'] ?></h1>
+        <h1 class="my-4">Avis du vétérinaire - <?= $animal['animal_race'] ?></h1>
         <?php if (array_key_exists("addOpinionError", $errors)) { ?>
             <div class="section_form_error">
                 <p><?= $errors["addOpinionError"] ?></p>

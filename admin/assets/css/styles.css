@@ -209,6 +209,10 @@ body {
   .table_body_animals {
     grid-template-columns: 5% 15% 10% 20% 15% 15% 10% 10%;
   }
+  .table_head_opinion_animals,
+  .table_body_opinion_animals {
+    grid-template-columns: 5% 15% 10% 15% 25% 20% 10%;
+  }
   .section_form_error {
     background-color: #ea5858;
     display: flex;

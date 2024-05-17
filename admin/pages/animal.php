@@ -9,11 +9,12 @@ $errors = [];
 $messages = [];
 
 if ($animal && array_key_exists("updateAnimal", $_POST)) {
-    $animal_name = $_POST['animal_name'];
+    $animal_race = $_POST['animal_race'];
+    $animal_condition = $animal['animal_condition'];
     $habitat_id = $_POST['habitat_id'];
     $class_id = $_POST['class_id'];
-    if(iconv_strlen($animal_name) > 0 && iconv_strlen($animal_name) <= 255 && $habitat_id > 0 && $habitat_id <= count($habitats) && $class_id > 0 && $class_id <= 5){
-        updateAnimal($pdo, $animal_id, $animal_name, $habitat_id, $class_id);
+    if(iconv_strlen($animal_race) > 0 && iconv_strlen($animal_race) <= 255 && $habitat_id > 0 && $habitat_id <= count($habitats) && $class_id > 0 && $class_id <= 5){
+        updateAnimal($pdo, $animal_id, $animal_race, $animal_condition, $habitat_id, $class_id);
         $messages['updateAnimalMessage'] = 'Modification réussie !';
     } else {
         $errors["updateAnimalError"] = "Modification échouée !";
@@ -34,7 +35,7 @@ if (array_key_exists("deleteAnimal", $_POST)) {
 
 <div class="container">
     <div class="d-flex flex-column">
-        <h1 class="my-4"><?=$animal['animal_name']?></h1>
+        <h1 class="my-4"><?=$animal['animal_race']?></h1>
         <?php if (array_key_exists("updateAnimalError", $errors)) { ?>
             <div class="section_form_error">
                 <p><?= $errors["updateAnimalError"] ?></p>
@@ -51,8 +52,8 @@ if (array_key_exists("deleteAnimal", $_POST)) {
     </div>
     <form class="section_form m-2" method="POST">
                 <div class="section_form_input my-2">
-                    <label for="animal_name">Nom de l'animal</label>
-                    <input type="text" class="form-control" id="animal_name" name="animal_name" value="<?=$animal['animal_name']?>"/>
+                    <label for="animal_race">Race de l'animal</label>
+                    <input type="text" class="form-control" id="animal_race" name="animal_race" value="<?=$animal['animal_race']?>"/>
                 </div>
                 <div class="section_form_input">
                     <label for="habitat_id">Habitat</label>

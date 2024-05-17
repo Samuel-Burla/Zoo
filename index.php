@@ -22,6 +22,22 @@ require_once __DIR__ . "/lib/functions.php";
 //     exit; // Exit the script if no image is found
 // }
 
+$errors = [];
+$messages = [];
+
+if (array_key_exists("addComment", $_POST)) {
+    $pseudo = $_POST['pseudo'];
+    $comment = $_POST['comment'];
+    if (iconv_strlen($pseudo) > 0 && iconv_strlen($pseudo) <= 50 && iconv_strlen($comment) > 0 && iconv_strlen($comment) <= 255) {
+        addComment($pdo, $pseudo, $comment);
+        $messages['addCommentMessage'] = "Ajout de l'animal réussi !";
+        //echo "<script type='text/javascript'>window('Avis soummis avec succès !');</script>";
+    } else {
+        $errors["addCommentError"] = "Echec lors de l'ajout de l'animal !";
+    }
+}
+
+var_dump($_POST);
 
 $habitats = getHabitats($pdo);
 ?>
@@ -72,7 +88,7 @@ $habitats = getHabitats($pdo);
         <div class="section_gallery_images">
             <?php foreach ($habitats as $key => $habitat) { ?>
                 <div class="section_gallery_images_img">
-                <a href="/pages/habitat.php?id=<?= $key + 1?>"><!-- image --><img class="gallery_image" src="/assets/images/desert.jpg" alt="desert"></a>
+                    <a href="/pages/habitat.php?id=<?= $key + 1 ?>"><!-- image --><img class="gallery_image" src="/assets/images/desert.jpg" alt="desert"></a>
                     <div class="section_gallery_images_img_content">
                         <h2><?= $habitat["habitat_name"] ?></h2>
                     </div>
@@ -86,8 +102,8 @@ $habitats = getHabitats($pdo);
         </div>
     </div>
     <div class="services_button">
-    <a class="button" href="/pages/habitats.php">Voir les habitats</a>
-</div>
+        <a class="button" href="/pages/habitats.php">Voir les habitats</a>
+    </div>
 </section>
 
 <section class="section_image">
@@ -169,11 +185,6 @@ $habitats = getHabitats($pdo);
                 <img src="/assets/images/profile.jpg" alt="profile">
                 <div class="section_comment_card_name ">
                     <h2>Samuel B.</h2>
-                    <!--<div class="section_comment_card_stars">
-                        <?php for ($i = 1; $i <= 5 /*$numberOfStartFromBdd*/; $i++) { ?>
-                            <i class="bi bi-star-fill"></i>
-                        <?php } ?>
-                    </div>-->
                 </div>
                 <div class="section_comment_card_text">
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta voluptates
@@ -182,15 +193,10 @@ $habitats = getHabitats($pdo);
                 </div>
             </div>
 
-            <div class="section_comment_card_content mobile">
+            <div class="section_comment_card_content">
                 <img src="/assets/images/profile.jpg" alt="profile">
                 <div class="section_comment_card_name ">
                     <h2>Samuel B.</h2>
-                    <div class="section_comment_card_stars">
-                        <?php for ($i = 1; $i <= 5 /*$numberOfStartFromBdd*/; $i++) { ?>
-                            <i class="bi bi-star-fill"></i>
-                        <?php } ?>
-                    </div>
                 </div>
                 <div class="section_comment_card_text">
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta voluptates
@@ -199,15 +205,10 @@ $habitats = getHabitats($pdo);
                 </div>
             </div>
 
-            <div class="section_comment_card_content mobile tablet">
+            <div class="section_comment_card_content">
                 <img src="/assets/images/profile.jpg" alt="profile">
                 <div class="section_comment_card_name ">
                     <h2>Samuel B.</h2>
-                    <div class="section_comment_card_stars">
-                        <?php for ($i = 1; $i <= 5 /*$numberOfStartFromBdd*/; $i++) { ?>
-                            <i class="bi bi-star-fill"></i>
-                        <?php } ?>
-                    </div>
                 </div>
                 <div class="section_comment_card_text">
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta voluptates
@@ -216,9 +217,30 @@ $habitats = getHabitats($pdo);
                 </div>
             </div>
         </div>
-        <a href="#" class="button">Ecrire un commentaire</a>
+        <a href="#" class="button" data-bs-toggle="modal" data-bs-target="#commentModal">Ecrire un commentaire</a>
     </div>
 </section>
+<!-- Comment Modal -->
+<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <h2 class="m-2">Ajouter un animal</h2>
+            <form class="section_form m-2" method="POST">
+                <div class="section_form_input my-2">
+                    <label for="pseudo">Pseudonyme</label>
+                    <input type="text" class="form-control" id="pseudo" name="pseudo" />
+                </div>
+                <div class="section_form_input">
+                    <label for="comment">Commentaire</label>
+                    <textarea type="text" class="form-control" id="comment" name="comment" rows="5"></textarea>
+                </div>
+                <div class="section_form_button mt-2">
+                    <button class="button" type="submit" name="addComment">Ajouter le commentaire</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <?php
 require_once __DIR__ . "/templates/footer.php";
