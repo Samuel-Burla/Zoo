@@ -59,6 +59,7 @@ CREATE TABLE IF NOT EXISTS `animal`(
     animal_condition VARCHAR(255),
     food VARCHAR(255),
     food_weight VARCHAR(255),
+    food_date_time INT,
     veterinary_opinion_id INT,
     habitat_id INT,
     class_id INT,
@@ -208,3 +209,30 @@ VALUES
 (1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 19 ),
 (1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 20 ),
 (1715904000, "viande rouge", "1kg/jour","En très bon état, de tous les point de vue.","Denis.Avenall@mail.com", 21 );
+
+INSERT INTO opinion (pseudo,  comment, isVisible)
+VALUES 
+("Gérard", "Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia
+            amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore
+            , optio", 0 ),
+("Mathieu", "Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia
+            amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore
+            , optio", 0 ),
+("Luc", "Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia
+            amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore
+            , optio", 0 ),
+("Bertrand", "Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia
+            amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore
+            , optio", 0 ),
+("Bernard", "Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia
+            amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore
+            , optio", 0 ),
+("Vincent", "Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Fugiat reprehenderit asperiores rerum dolorem facilis ipsam mollitia
+            amet minima, fugit labore reiciendis sit? Illum quas ut molestiae labore
+            , optio", 0 );

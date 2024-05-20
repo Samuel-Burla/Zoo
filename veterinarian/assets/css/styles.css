@@ -161,6 +161,13 @@ body {
     overflow: scroll;
     border-radius: 10px;
   }
+  .signoutButton {
+    text-decoration: none;
+    padding: 8px 16px;
+    margin-top: 10px;
+    width: -moz-max-content;
+    width: max-content;
+  }
   .table_head {
     background-color: #596643;
   }

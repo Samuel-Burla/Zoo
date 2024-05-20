@@ -9,6 +9,40 @@ require_once __DIR__ . "/pdo.php";
 // }
 
 
+/* ============= visitors opinion ============ */
+
+function getVisitorsOpinion(PDO $pdo, INT $opinion_id): array
+{
+    $query = $pdo->prepare("SELECT * FROM opinion WHERE opinion_id=:opinion_id");
+    $query->bindValue(":opinion_id", $opinion_id, PDO::PARAM_INT);
+    $query->execute();
+
+    $opinion = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $opinion;
+}
+
+function getVisitorsOpinions(PDO $pdo): array
+{
+    $query = $pdo->prepare("SELECT * FROM opinion");
+    $query->execute();
+
+    $opinions = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $opinions;
+}
+
+function validateVisitorsOpinions(PDO $pdo, INT $opinion_id)
+{
+    $query = $pdo->prepare("UPDATE opinion SET isVisible = 1 WHERE opinion_id=:opinion_id");
+    $query->bindValue("opinion_id", $opinion_id, PDO::PARAM_INT);
+    $query->execute();
+}
+function invalidateVisitorsOpinions(PDO $pdo, INT $opinion_id)
+{
+    $query = $pdo->prepare("UPDATE opinion SET isVisible = 0 WHERE opinion_id=:opinion_id");
+    $query->bindValue("opinion_id", $opinion_id, PDO::PARAM_INT);
+    $query->execute();
+}
+
 /* ============= Opening Time =========== */
 function getOpeningTime(PDO $pdo): array
 {
@@ -201,6 +235,16 @@ function updateAnimal(PDO $pdo, int $animal_id, string $animal_race, string $ani
     $query->bindValue(":class_id", $class_id, PDO::PARAM_INT);
     $query->execute();
 }
+function updateAnimalFoodDetails(PDO $pdo, int $animal_id, string $food, string $food_weight, int $food_date_time)
+{
+    $sql = "UPDATE animal SET food=:food, food_weight=:food_weight, food_date_time=:food_date_time WHERE animal_id=:animal_id";
+    $query = $pdo->prepare($sql);
+    $query->bindValue(":animal_id", $animal_id, PDO::PARAM_INT);
+    $query->bindValue(":food", $food, PDO::PARAM_STR);
+    $query->bindValue(":food_weight", $food_weight, PDO::PARAM_STR);
+    $query->bindValue(":food_date_time", $food_date_time, PDO::PARAM_INT);
+    $query->execute();
+}
 
 function deleteAnimal(PDO $pdo, int $animal_id)
 {
@@ -260,7 +304,7 @@ function getUsers(PDO $pdo): array
     return $users;
 }
 
-function getUser(PDO $pdo, string $username): array
+function getUser(PDO $pdo, string $username): array|bool
 {
     $query = $pdo->prepare("SELECT * FROM user WHERE username=:username");
     $query->bindValue(":username", $username, PDO::PARAM_STR);
@@ -360,23 +404,5 @@ function addVeterinarianOpinion(PDO $pdo, string $recommended_food, string $reco
     $query->bindValue(":username", $username, PDO::PARAM_STR);
     $query->bindValue(":date", $date, PDO::PARAM_INT);
     $query->bindValue(":animal_id", $animal_id, PDO::PARAM_INT);
-    $query->execute();
-}
-
-function updateVeterinarianOpinion(PDO $pdo, string $serviceName, string $serviceDescription, int $service_id)
-{
-    $sql = "UPDATE service SET service_name=:serviceName, description=:serviceDescription WHERE service_id=:service_id";
-    $query = $pdo->prepare($sql);
-    $query->bindValue(":serviceName", $serviceName, PDO::PARAM_STR);
-    $query->bindValue(":serviceDescription", $serviceDescription, PDO::PARAM_STR);
-    $query->bindValue(":service_id", $service_id, PDO::PARAM_INT);
-    $query->execute();
-}
-
-function deleteVeterinarianOpinion(PDO $pdo, int $service_id)
-{
-    $sql = "DELETE FROM service WHERE service_id=:service_id";
-    $query = $pdo->prepare($sql);
-    $query->bindValue(":service_id", $service_id, PDO::PARAM_INT);
     $query->execute();
 }

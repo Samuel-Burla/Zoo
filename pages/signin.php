@@ -5,18 +5,25 @@ $errors = [];
 
 if (array_key_exists("submitButton", $_POST)) {
     $usernameForm = $_POST["username"];
-    $user = getUser($pdo, $usernameForm);
-    if ($user) {
-        if ($user["role_id"] === 1) {
-            header('Location: /admin/index.php'); //proteger les pages aussi
-        } else if ($user["role_id"] === 2) {
-            header('Location: /veterinary/index.php'); //proteger les pages aussi
-        } else if ($user["role_id"] === 3) {
-            header('Location: /employee/index.php'); //proteger les pages aussi
+    $passwordForm = $_POST["password"];
+    if (strlen($usernameForm) > 0 && strlen($usernameForm) <= 255 && strlen($passwordForm) > 0 && strlen($passwordForm) <= 255) {
+        $user = getUser($pdo, $usernameForm);
+        if ($user && password_verify($passwordForm, $user["password"])) {
+            session_regenerate_id(true);
+            $_SESSION["user"] = $user;
+            if ($user["role_id"] === 1) {
+                header('Location: /admin/index.php');
+            } else if ($user["role_id"] === 2) {
+                header('Location: /veterinarian/index.php');
+            } else if ($user["role_id"] === 3) {
+                header('Location: /employee/index.php');
+            } else {
+                header('Location: /index.php');
+            }
         } else {
-            header('Location: /index.php');
+            $errors["userLoginError"] = "Identifiant ou mot de passe incorrects!";
         }
-    } else {
+    }else{
         $errors["userLoginError"] = "Identifiant ou mot de passe incorrects!";
     }
 }
@@ -57,7 +64,7 @@ if (array_key_exists("submitButton", $_POST)) {
             <input type="text" class="form-control" id="password" name="password" />
         </div>
         <div class="section_form_button">
-            <button class="button" type="submit" name="submitButton">Connexion</button>
+            <button class="button border border-0" type="submit" name="submitButton">Connexion</button>
         </div>
     </form>
 </section>

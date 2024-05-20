@@ -3,6 +3,7 @@ require_once __DIR__ . "/templates/header.php";
 require_once __DIR__ . "/lib/pdo.php";
 require_once __DIR__ . "/lib/functions.php";
 
+
 // $images = getImages($pdo,1);
 // $uneImage = $images[0]['image_data'];
 
@@ -22,6 +23,8 @@ require_once __DIR__ . "/lib/functions.php";
 //     exit; // Exit the script if no image is found
 // }
 
+var_dump($_SESSION);
+
 $errors = [];
 $messages = [];
 
@@ -31,13 +34,14 @@ if (array_key_exists("addComment", $_POST)) {
     if (iconv_strlen($pseudo) > 0 && iconv_strlen($pseudo) <= 50 && iconv_strlen($comment) > 0 && iconv_strlen($comment) <= 255) {
         addComment($pdo, $pseudo, $comment);
         $messages['addCommentMessage'] = "Ajout de l'animal réussi !";
-        //echo "<script type='text/javascript'>window('Avis soummis avec succès !');</script>";
+        echo "<script type='text/javascript'>alert('Avis soummis avec succès !');</script>";
     } else {
         $errors["addCommentError"] = "Echec lors de l'ajout de l'animal !";
     }
 }
-
-var_dump($_POST);
+// if($messages['addCommentMessage']){
+//     // echo "<script type='text/javascript'>alert('Avis soummis avec succès !');</script>";
+// }
 
 $habitats = getHabitats($pdo);
 ?>
@@ -87,8 +91,10 @@ $habitats = getHabitats($pdo);
     <div class="section_gallery_content">
         <div class="section_gallery_images">
             <?php foreach ($habitats as $key => $habitat) { ?>
-                <div class="section_gallery_images_img">
-                    <a href="/pages/habitat.php?id=<?= $key + 1 ?>"><!-- image --><img class="gallery_image" src="/assets/images/desert.jpg" alt="desert"></a>
+                <div class="section_gallery_images_img <?php if ($habitat["habitat_id"]==5 || $habitat["habitat_id"]==6) {
+                    echo "mobile";
+                } ?>">
+                    <a href="/pages/habitat.php?id=<?= $habitat["habitat_id"] ?>"><!-- image --><img class="gallery_image" src="/assets/images/desert.jpg" alt="desert"></a>
                     <div class="section_gallery_images_img_content">
                         <h2><?= $habitat["habitat_name"] ?></h2>
                     </div>
@@ -101,7 +107,7 @@ $habitats = getHabitats($pdo);
             <!--<img class="gallery_image" src="/assets/images/mountain.jpg" alt="mountain">-->
         </div>
     </div>
-    <div class="services_button">
+    <div class="habitats_button">
         <a class="button" href="/pages/habitats.php">Voir les habitats</a>
     </div>
 </section>

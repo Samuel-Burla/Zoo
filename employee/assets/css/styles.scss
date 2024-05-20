@@ -181,12 +181,7 @@ body {
     overflow: scroll;
     border-radius: 10px;
   }
-  .signoutButton{
-    text-decoration: none;
-    padding: 8px 16px;
-    margin-top: 10px;
-    width: max-content;
-  }
+
   .table_head {
     background-color: $secondaryColor;
   }
@@ -239,6 +234,10 @@ body {
   .table_head_opinion_animals,
   .table_body_opinion_animals {
     grid-template-columns: 5% 15% 10% 15% 25% 20% 10%;
+  }
+  .table_head_opinions_visitors,
+  .table_body_opinions_visitors {
+    grid-template-columns: 5% 10% 65% 10% 10%;
   }
   .section_form_error {
     background-color: #ea5858;

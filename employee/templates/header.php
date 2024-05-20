@@ -4,15 +4,15 @@ require_once __DIR__ . "../../../lib/pdo.php";
 require_once __DIR__ . "../../../lib/functions.php";
 require_once __DIR__ . "../../../lib/session.php";
 
-function veterinarianOnly()
+function employeeOnly()
 {
-    if ($_SESSION['user']['role_id'] !== 2) {
+    if ($_SESSION['user']['role_id'] !== 3) {
         header('location: /pages/signin.php');
     }
 }
-veterinarianOnly();
+employeeOnly();
 
-
+$headTitle = basename($_SERVER['SCRIPT_NAME']);
 ?>
 
 <!DOCTYPE html>
@@ -22,8 +22,8 @@ veterinarianOnly();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/veterinarian/assets/css/styles.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="/employee/assets/css/styles.css">
+    <title><?= $menu["$headTitle"]["headTitle"] ?></title>
 </head>
 
 <body class="d-flex">
@@ -47,31 +47,28 @@ veterinarianOnly();
     </header>
     <header class="desktop">
         <div class="d-flex bootstrap_sidebar flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
-            <a href="/veterinarian" class="d-flex m-3 align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <span class="fs-4">Dashboard Veterinarian</span>
+            <a href="/employee" class="d-flex m-3 align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <span class="fs-4">Dashboard employee</span>
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <?php foreach ($menu as $key => $menuItem) { ?>
                     <li class="nav-item">
-                        <a href="/veterinarian/<?php if ($key == "index.php") {
-                                                    echo "index.php";
-                                                } else {
-                                                    echo "pages/" . $key;
-                                                } ?>" class="nav-link text-white">
+                        <a href="/employee/<?php if ($key == "index.php") {
+                                            echo "index.php";
+                                        } else {
+                                            echo "pages/" . $key;
+                                        } ?>" class="nav-link text-white">
                             <?= $menuItem["title"] ?>
                         </a>
                     </li>
                 <?php } ?>
             </ul>
             <hr>
-            <div class="d-flex">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none" aria-expanded="false">
                 <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                <strong>José Arcad</strong>
+                <strong>employee</strong>
             </a>
-            <a class="button signoutButton" href="/pages/signout.php">Déconnexion</a>
-            </div>
         </div>
     </header>
     <main>

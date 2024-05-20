@@ -2,6 +2,7 @@
 require_once __DIR__ . "../../lib/menu.php";
 require_once __DIR__ . "../../lib/pdo.php";
 require_once __DIR__ . "../../lib/functions.php";
+require_once __DIR__ . "../../lib/session.php";
 
 
 $headTitle = basename($_SERVER["SCRIPT_NAME"]);

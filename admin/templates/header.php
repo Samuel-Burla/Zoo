@@ -2,6 +2,18 @@
 require_once __DIR__ . "../../lib/menu.php";
 require_once __DIR__ . "../../../lib/functions.php";
 require_once __DIR__ . "../../../lib/pdo.php";
+require_once __DIR__ . "../../../lib/session.php";
+
+function adminOnly()
+{
+    if ($_SESSION['user']['role_id'] !== 1) {
+        header('location: /pages/signin.php');
+    }
+}
+adminOnly();
+
+
+
 ?>
 
 <!DOCTYPE html>

@@ -262,10 +262,9 @@ body {
   .section_gallery .section_gallery_images {
     display: grid;
     grid-template-columns: repeat(2, minmax(120px, 230px));
-    grid-template-rows: repeat(2, minmax(120px, 200px));
     gap: 20px;
     width: 100%;
-    height: 288px;
+    height: auto;
   }
   .section_gallery .section_gallery_images_img {
     position: relative;
@@ -402,14 +401,18 @@ body {
   .section_image .section_image_content {
     position: absolute;
     color: #fffaef;
-    width: 80%;
-    top: 70%;
+    width: 95%;
+    top: 65%;
   }
   .section_image .section_image_content h2 {
     color: #fffaef;
   }
   .services_button {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .habitats_button {
     display: flex;
     justify-content: center;
   }
@@ -422,6 +425,7 @@ body {
   }
   .section_form_content h2 {
     font-size: 18px;
+    margin: 20px 0px;
   }
   .section_form {
     display: flex;
@@ -632,6 +636,10 @@ body {
   .section_animals .animal_card_button {
     margin-bottom: 12px;
   }
+  .habitats_button {
+    display: flex;
+    justify-content: center;
+  }
   .section_gallery {
     display: flex;
     flex-direction: column;
@@ -648,10 +656,9 @@ body {
   .section_gallery .section_gallery_images {
     display: grid;
     grid-template-columns: repeat(2, minmax(180px, 400px));
-    grid-template-rows: repeat(2, minmax(180px, 400px));
     gap: 20px;
     width: 100%;
-    height: 400px;
+    height: auto;
   }
   .section_gallery .section_gallery_images_img {
     position: relative;
@@ -698,6 +705,7 @@ body {
   }
   .section_form_content h2 {
     font-size: 18px;
+    margin: 20px 0px;
   }
   .section_form {
     display: flex;

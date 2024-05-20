@@ -1,10 +1,8 @@
-<?php 
-require_once __DIR__ . "../../templates/header.php";
-?>
+<?php
+session_start();
+session_destroy();
+unset($_SESSION);
+header('location: /index.php');
 
-Signin
 
-
-<?php 
-require_once __DIR__ . "../../templates/footer.php";
 ?>
