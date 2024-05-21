@@ -12,11 +12,11 @@ if (array_key_exists("submitButton", $_POST)) {
             session_regenerate_id(true);
             $_SESSION["user"] = $user;
             if ($user["role_id"] === 1) {
-                header('Location: /admin/index.php');
+                header('Location: /dashboardAdmin/index.php');
             } else if ($user["role_id"] === 2) {
-                header('Location: /veterinarian/index.php');
+                header('Location: /dashboardVeterinarian/index.php');
             } else if ($user["role_id"] === 3) {
-                header('Location: /employee/index.php');
+                header('Location: /dashboardEmployee/index.php');
             } else {
                 header('Location: /index.php');
             }

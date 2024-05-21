@@ -23,8 +23,6 @@ require_once __DIR__ . "/lib/functions.php";
 //     exit; // Exit the script if no image is found
 // }
 
-var_dump($_SESSION);
-
 $errors = [];
 $messages = [];
 
@@ -67,7 +65,7 @@ $habitats = getHabitats($pdo);
             , optio officia error.Illum quas ut molestiae labore
             , optio officia error</p>
     </div>
-    <img src="" alt="flamingo">
+    <img src="/assets/images/flamingo.jpg" alt="flamingo">
 </section>
 <section class="section_description reverse">
     <div class="section_content_textImage">
@@ -135,7 +133,7 @@ $habitats = getHabitats($pdo);
     </div>
 </section>
 <div class="services_button">
-    <a class="button" href="/services.php">Voir les services</a>
+    <a class="button" href="/pages/services.php">Voir les services</a>
 </div>
 
 <section class="section_gallery">
@@ -145,41 +143,41 @@ $habitats = getHabitats($pdo);
             <div class="section_gallery_images_img">
                 <a href="#"><img class="gallery_image" src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
                 <div class="section_gallery_images_img_content">
-                    <h2>petit tour en train</h2>
+                    <h2>Zèbre</h2>
                 </div>
             </div>
             <div class="section_gallery_images_img">
                 <a href="#"><img class="gallery_image" src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
                 <div class="section_gallery_images_img_content">
-                    <h2>petit tour en train</h2>
+                    <h2>Lion</h2>
                 </div>
             </div>
             <div class="section_gallery_images_img">
                 <a href="#"><img class="gallery_image" src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
                 <div class="section_gallery_images_img_content">
-                    <h2>petit tour en train</h2>
+                    <h2>Tigre</h2>
                 </div>
             </div>
             <div class="section_gallery_images_img">
                 <a href="#"><img class="gallery_image" src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
                 <div class="section_gallery_images_img_content">
-                    <h2>petit tour en train</h2>
+                    <h2>Elephant</h2>
                 </div>
             </div>
             <div class="section_gallery_images_img mobile">
                 <a href="#"><img class="gallery_image" src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
                 <div class="section_gallery_images_img_content">
-                    <h2>petit tour en train</h2>
+                    <h2>Grenouille</h2>
                 </div>
             </div>
             <div class="section_gallery_images_img mobile">
                 <a href="#"><img class="gallery_image" src="/assets/images/andreas-rasmussen-NNe6epzHGm8-unsplash (1).jpg" alt="s"></a>
                 <div class="section_gallery_images_img_content">
-                    <h2>petit tour en train</h2>
+                    <h2>Aigle</h2>
                 </div>
             </div>
         </div>
-        <a class="button" href="/habitats.php">Voir les habitats</a>
+        <a class="button" href="/pages/habitats.php">Voir les habitats</a>
     </div>
 </section>
 
@@ -226,6 +224,7 @@ $habitats = getHabitats($pdo);
         <a href="#" class="button" data-bs-toggle="modal" data-bs-target="#commentModal">Ecrire un commentaire</a>
     </div>
 </section>
+
 <!-- Comment Modal -->
 <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
