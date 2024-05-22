@@ -178,8 +178,7 @@ VALUES
 ("Victoire.Bernier@mail.com", "test", "Bernier", "Victoire", 3),
 ("Mandel.Cressac@mail.com", "test", "Cressac", "Mandel", 2),
 ("Geneviève.Lamontagne@mail.com", "test", "Lamontagne", "Geneviève", 3),
-("Émile.Gagné@mail.com", "test", "Gagné", "Émile", 3),
-("Céline.Paquette@mail.com", "test", "Paquette", "Céline", 2);
+("Émile.Gagné@mail.com", "test", "Gagné", "Émile", 3);
 
 INSERT INTO opening_time (monday, tuesday, wednesday, thursday, friday, saturday, sunday)
 VALUES 
